@@ -170,8 +170,6 @@
             margin-bottom: 1.5em;
         }
 
- 
-
         /* ==========================================
            サイドバーエリア
         ========================================== */
@@ -275,6 +273,79 @@
         }
 
         /* ==========================================
+           自作ポップアップ（モーダル）のデザイン
+        ========================================== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--white);
+            width: 90%;
+            max-width: 500px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .modal-title {
+            font-size: 1.1rem;
+            color: var(--dark-blue);
+            border-bottom: 2px solid var(--primary-blue);
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .modal-text {
+            font-size: 0.9rem;
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .modal-text p {
+            margin-bottom: 10px;
+        }
+
+        .modal-close-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.2s;
+        }
+
+        .modal-close-btn:hover {
+            background-color: var(--accent-blue);
+        }
+
+        /* ==========================================
            フッター
         ========================================== */
         footer {
@@ -372,46 +443,37 @@
                 </div>
 
                 <div class="blog-body">
-<p>みんな、こんにちは！KAIです。</p>
-<p>今日は僕の癒やし！愛猫の「シアン」を改めてみんなに紹介しちゃいます😸</p>
+                    <p>みんな、こんにちは！KAIです。</p>
+                    <p>今日は僕の癒やし！愛猫の「シアン」を改めてみんなに紹介しちゃいます😸</p>
 
-<p>シアンは、ちょっと珍しい綺麗な青い目をした男の子。</p>
-<p>僕のメンバーカラーがブルーなの、なんか運命的じゃない？</p>
+                    <p>シアンは、ちょっと珍しい綺麗な青い目をした男の子。</p>
+                    <p>僕のメンバーカラーがブルーなの、なんか運命的じゃない？</p>
 
-<p>実はシアン、もともと僕と友人が公園で保護して実家で家族みんなで飼っていた猫なんだよね。</p>
-<p>でも、僕が東京で一人暮らしを始めるってなったとき、「シアンと離れるなんて絶対に嫌だ！」ってなっちゃって。</p>
+                    <p>実はシアン、もともと僕と友人が公園で保護して実家で家族みんなで飼っていた猫なんだよね。</p>
+                    <p>でも、僕が東京で一人暮らしを始めるってなったとき、「シアンと離れるなんて絶対に嫌だ！」ってなっちゃって。</p>
 
-<p>家族からは「慣れ親しんだ実家に置いていく方が猫のためだよ」「一人暮らしで寂しいからって連れて行くのは人間のエゴだよ」って、ものすごく反対されたんだ。</p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p>……でもね、僕にとってはシアンと離れたくないっていう気持ちの方が強かった。</p>
-<p>だって、大好きなものとはずっと一緒にいるべきでしょ？</p>
+                    <p>家族からは「慣れ親しんだ実家に置いていく方が猫のためだよ」「一人暮らしで寂しいからって連れて行くのは人間のエゴだよ」って、ものすごく反対されたんだ。</p>
 
-<p>だから家族の反対を押し切って、半ば強引に連れてきちゃいました（笑）。</p>
-<p>もちろん連れてきたからには、寂しい思いなんて絶対にさせないって決めてたから、お世話はめちゃくちゃ全力でやってるよ！</p>
+                    <p>……でもね、僕にとってはシアンと離れたくないっていう気持ちの方が強かった。</p>
+                    <p>だって、大好きなものとはずっと一緒にいるべきでしょ？</p>
 
-<p>そんな風に、僕が必死にお世話している様子を動画や写真で毎日家族に送っていたら、</p>
-<p>最初は怒っていた家族も、
-「そこまで大切に、徹底的に管理してお世話してるなら安心だね。
-シアンも幸せそうだし、あなたに任せるよ」</p>
-<p>って、最終的には僕の愛を認めて、許してくれました！本当に良かった。</p>
+                    <p>だから家族の反対を押し切って、半ば強引に連れてきちゃいました（笑）。</p>
+                    <p>もちろん連れてきたからには、寂しい思いなんて絶対にさせないって決めてたから、お世話はめちゃくちゃ全力でやってるよ！</p>
 
-<p>やっぱり、大好きなものを自分の手元に置いておくためなら、
-それ相応の覚悟と努力が必要だよね。</p>
-<p>僕はシアンのためなら、なんだってできる自信があるよ。</p>
-<p></p><p></p>
-<p>みんなも、僕にとってのシアンみたいな、僕が全力でお世話したくなるような存在になってくれる？</p>
+                    <p>そんな風に、僕が必死にお世話している様子を動画や写真で毎日家族に送っていたら、</p>
+                    <p>最初は怒っていた家族も、<br>
+                    「そこまで大切に、徹底的に管理してお世話してるなら安心だね。シアンも幸せそうだし、あなたに任せるよ」</p>
+                    <p>って、最終的には僕の愛を認めて、許してくれました！本当に良かった。</p>
 
-<p>それじゃあまた！</p>
+                    <p>やっぱり、大好きなものを自分の手元に置いておくためなら、それ相応の覚覚悟と努力が必要だよね。</p>
+                    <p>僕はシアンのためなら、なんだってできる自信があるよ。</p>
 
+                    <p>みんなも、僕にとってのシアンみたいな、僕が全力でお世話したくなるような存在になってくれる？</p>
 
+                    <p>それじゃあまた！</p>
                 </div>
 
             </article>
-
-          
         </main>
 
         <!-- サイドバー（検索・注意事項 ＋ メンバー一覧） -->
@@ -441,7 +503,7 @@
                     <li><a href="javascript:void(0);">YUTO</a></li>
                     <li><a href="javascript:void(0);">REI</a></li>
                     <li><a href="javascript:void(0);">KAI</a></li>
-                    <li><a herf="javascript:void(0);">SHOTA</a></li>
+                    <li><a href="javascript:void(0);">SHOTA</a></li>
                 </ul>
             </div>
 
@@ -449,7 +511,21 @@
 
     </div>
 
-   <!-- フッターエリア -->
+    <!-- 自作ポップアップ（モーダル）の構造 -->
+    <div class="modal-overlay" id="noticeModal">
+        <div class="modal-content">
+            <h3 class="modal-title">⚠️ ブログ検索に関する注意事項</h3>
+            <div class="modal-text">
+                <p>会員の皆様への公正を期すため、ご入会いただいた時点以降の記事から閲覧できるよう最新記事のみ表示されています。</p>
+                <p>「過去の記事」の閲覧をご希望の場合は、ブログ上部の検索バーより、ご覧になりたい記事の「タイトル」を入力して検索を行ってください。</p>
+                <p><strong>※検索は「タイトル完全一致」のみ対応しております。</strong></p>
+                <p>※気になる記事や思い出の記事のタイトルを各自で記憶・お控えいただけますようお願い申し上げます。<br>（例：「初ブログ」）</p>
+            </div>
+            <button type="button" class="modal-close-btn" onclick="closeNotice()">閉じる</button>
+        </div>
+    </div>
+
+    <!-- フッターエリア -->
     <footer>
         <div class="footer-links">
             <a href="javascript:void(0);">ファンクラブについて</a>
@@ -457,10 +533,10 @@
             <a href="javascript:void(0);">プライバシーポリシー</a>
             <a href="javascript:void(0);">お問い合わせ</a>
         </div>
-      <p>このサイトはフィクションです</p>
+        <p>このサイトはフィクションです</p>
         <p class="copyright">&copy; 初心者 / 秘密のファンミーティング</p>
     
-      <p class="yacho-powered-by" style="margin-top:8px;font-size:11px;opacity:.55;">Powered by <a href="https://sim3.net/yacho/" target="_blank" rel="noopener">YACHO(SIM3)</a></p>
+        <p class="yacho-powered-by" style="margin-top:8px;font-size:11px;opacity:.55;">Powered by <a href="https://sim3.net/yacho/" target="_blank" rel="noopener">YACHO(SIM3)</a></p>
     </footer>
 
     <!-- JavaScript（機能処理） -->
@@ -474,14 +550,15 @@
             }
         }
 
-        // 注意事項ボタンの動作
+        // 注意事項ボタン（モーダルを開く）
         function showNotice() {
-            alert(
-                "【ブログ検索に関する注意事項】\n\n" +
-               "会員の皆様への公正を期すため、ご入会いただいた時点以降の記事から閲覧できるよう最新記事のみ表示されています。「過去の記事」の閲覧をご希望の場合は、ブログ上部の検索バーより、ご覧になりたい記事の「タイトル」を入力して検索を行ってください。※検索は「タイトル完全一致」のみ対応しております。※気になる記事や思い出の記事のタイトルを各自で記憶・お控えいただけますようお願い申し上げます。※例「初ブログ」"
-              
-              　
-            );
+            document.getElementById('noticeModal').classList.add('active');
         }
-    </script></body>
+
+        // 閉じるボタン（モーダルを閉じる）
+        function closeNotice() {
+            document.getElementById('noticeModal').classList.remove('active');
+        }
+    </script>
+</body>
 </html>
