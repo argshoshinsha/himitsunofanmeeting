@@ -13,10 +13,12 @@
             color: #ffffff;
             font-family: 'Courier New', Consolas, monospace; /* プログラムっぽいフォント */
             display: flex;
-            justify-content: center;
-            min-height: 100vh;  /* height を min-height（最小の高さ）に変更 */
-            padding: 40px 0;    /* 上下に余白をつける */
+            flex-direction: column; /* 要素を縦並びにする */
+            justify-content: space-between; /* コンテンツとフッターを上下に離す */
+            align-items: center;
+            min-height: 100vh;  /* 最低でも画面の高さを確保 */
             margin: 0;
+            padding: 40px 0 20px; /* 上下に余白を設定 */
             box-sizing: border-box; /* 余白を高さに含める設定 */
         }
 
@@ -25,20 +27,20 @@
             width: 90%;
             max-width: 600px;
             padding: 40px;
-            border: 1px solid #ff3333; /* 青から赤に変更 */
+            border: 1px solid #ff3333; /* 赤枠 */
             box-shadow: 0 0 15px rgba(255, 51, 51, 0.3); /* 赤くぼんやり光る効果 */
             background-color: #000000;
-            margin: auto; 
+            box-sizing: border-box;
         }
 
         /* タイトルのデザイン */
         .title {
             font-size: 1.5rem;
             color: #ffffff;
-            border-bottom: 1px dashed #ff3333; /* 青から赤に変更 */
+            border-bottom: 1px dashed #ff3333; /* 赤に変更 */
             padding-bottom: 10px;
             margin-top: 0;
-            text-shadow: 0 0 8px #ff3333; /* 青から赤に変更 */
+            text-shadow: 0 0 8px #ff3333; /* 赤に変更 */
         }
 
         /* コメント（状況説明）のデザイン */
@@ -51,10 +53,10 @@
 
         /* 問題文を囲む箱 */
         .question-box {
-            background-color: rgba(255, 51, 51, 0.1); /* 青の半透明から赤の半透明に変更 */
+            background-color: rgba(255, 51, 51, 0.1); /* 赤の半透明 */
             padding: 20px;
             margin-bottom: 30px;
-            border-left: 5px solid #ff3333; /* 青から赤に変更 */
+            border-left: 5px solid #ff3333; /* 赤に変更 */
         }
 
         .question {
@@ -75,19 +77,19 @@
             flex-grow: 1;
             background-color: #000;
             color: #ff3333; /* 文字色を赤に変更 */
-            border: 1px solid #ff3333; /* 青から赤に変更 */
+            border: 1px solid #ff3333; /* 赤に変更 */
             padding: 10px;
             font-family: inherit;
             font-size: 1rem;
             outline: none;
         }
         input[type="text"]:focus {
-            box-shadow: 0 0 10px rgba(255, 51, 51, 0.6); /* 青から赤に変更 */
+            box-shadow: 0 0 10px rgba(255, 51, 51, 0.6); /* 赤に変更 */
         }
 
         /* 送信ボタンのデザイン */
         button {
-            background-color: #ff3333; /* 青から赤に変更 */
+            background-color: #ff3333; /* 赤に変更 */
             color: #ffffff;
             border: 1px solid #990000; /* 濃い赤に変更 */
             padding: 10px 20px;
@@ -98,8 +100,8 @@
         }
         button:hover {
             background-color: #000;
-            color: #ff3333; /* 青から赤に変更 */
-            box-shadow: 0 0 10px #ff3333; /* 青から赤に変更 */
+            color: #ff3333; /* 赤に変更 */
+            box-shadow: 0 0 10px #ff3333; /* 赤に変更 */
         }
 
         /* エラーメッセージ（不正解の時の文字） */
@@ -109,11 +111,38 @@
             font-weight: bold;
         }
 
-      img {
-    max-width: 100%; /* 親の入れ物に合わせて、画像が勝手に縮むようになる */
-    height: auto;    /* 縦横比がおかしくならないように自動調整する */
-}
-      
+        img {
+            max-width: 100%; /* 親の入れ物に合わせて、画像が勝手に縮むようになる */
+            height: auto;    /* 縦横比がおかしくならないように自動調整する */
+        }
+
+        /* フッターエリアのデザイン（枠外の一番下に配置） */
+        footer {
+            text-align: center;
+            padding: 20px 0 10px;
+            color: #888888;
+            font-size: 12px;
+            width: 100%;
+            margin-top: 30px; /* 枠との間の余白 */
+        }
+        footer p {
+            margin: 4px 0;
+        }
+        footer a {
+            color: #888888;
+            text-decoration: underline;
+        }
+        footer a:hover {
+            color: #ff3333;
+        }
+        .copyright {
+            margin-bottom: 6px;
+        }
+        .yacho-powered-by {
+            margin-top: 4px;
+            font-size: 11px;
+            opacity: .55;
+        }
     </style>
     <!-- ▲▲▲ ここまでデザイン(CSS) ▲▲▲ -->
 
@@ -129,26 +158,27 @@
 
         <!-- ▼ コメント（状況説明やフレーバーテキスト） ▼ -->
         <div class="comment">
-          <p>当サイトをご覧の方へ大切なお知らせとお願い</P>
-<p>いつもSEARCHLIGHT、およびKAIを応援いただき、誠にありがとうございます。</p>
+            <p>当サイトをご覧の方へ大切なお知らせとお願い</p>
+            <p>いつもSEARCHLIGHT、およびKAIを応援いただき、誠にありがとうございます。</p>
 
-<p>先日開催されましたおはなし会の終了後、メンバーのKAIと一切の連絡が取れなくなっております。
-<br>予定されていた収録にも姿を見せず、自宅マンションにも本人の姿はなく、対応を進めていました。</p>
+            <p>先日開催されましたおはなし会の終了後、メンバーのKAIと一切の連絡が取れなくなっております。<br>
+            予定されていた収録にも姿を見せず、自宅マンションにも本人の姿はなく、対応を進めていました。</p>
 
-<p>手掛かりを探して我々スタッフがKAIの足取りを追っていたところ、このブログの中に、妙なシステムが仕込まれているのを発見しました。</p>
+            <p>手掛かりを探して我々スタッフがKAIの足取りを追っていたところ、このブログの中に、妙なシステムが仕込まれているのを発見しました。</p>
 
-<p>KAIは最近、精神的にかなり不安定な様子が見られ、通院していたことも分かっています。
-<br>スタッフ一同でこのシステムの解析を進めておりますが、この場所にKAIの居場所に直結する内容が隠されている可能性が非常に高いです。</p>
+            <p>KAIは最近、精神的にかなり不安定な様子が見られ、通院していたことも分かっています。<br>
+            スタッフ一同でこのシステムの解析を進めておりますが、この場所にKAIの居場所に直結する内容が隠されている可能性が非常に高いです。</p>
 
-<p>このシステムをお使いの貴方様なら、今回の件について何かご存じのはず。<br>どうか力を貸してください。</p>
+            <p>このシステムをお使いの貴方様なら、今回の件について何かご存じのはず。<br>
+            どうか力を貸してください。</p>
 
-<p>もし、KAIがこのブログ内に残したクイズから、彼が現在いる場所が判明ましたら、以下の入力フォームに情報を提供していただけないでしょうか。</p>
+            <p>もし、KAIがこのブログ内に残したクイズから、彼が現在いる場所が判明ましたら、以下の入力フォームに情報を提供していただけないでしょうか。</p>
 
-<p>一刻を争う事態です。どんなに小さな手がかりでも構いません。
-<br>KAIを無事に救出するため、皆様のご協力を心よりお願い申し上げます。</p>
+            <p>一刻を争う事態です。どんなに小さな手がかりでも構いません。<br>
+            KAIを無事に救出するため、皆様のご協力を心よりお願い申し上げます。</p>
 
-<p>株式会社ライトプロモーション</p>
-<p>SEARCHLIGHTマネジメント部 山田</p>
+            <p>株式会社ライトプロモーション</p>
+            <p>SEARCHLIGHTマネジメント部 山田</p>
         </div>
 
         <!-- ▼ 問題文 ▼ -->
@@ -197,7 +227,13 @@
     </script>
     <!-- ▲▲▲ ここまで正誤判定の動き(JavaScript) ▲▲▲ -->
 
+    <!-- ▼▼▼ フッター（枠外・一番下に配置） ▼▼▼ -->
+    <footer>
+        <p>このサイトはフィクションです</p>
+        <div class="copyright">&copy;初心者 / 秘密のファンミーティング</div>
+        <!-- パワードバイyacho -->
+        <p class="yacho-powered-by">Powered by <a href="https://sim3.net/yacho/" target="_blank" rel="noopener">YACHO(SIM3)</a></p>
+    </footer>
 
-<footer style="text-align:center;padding:12px 0 8px;"><p class="yacho-powered-by" style="margin-top:8px;font-size:11px;opacity:.55;">Powered by <a href="https://sim3.net/yacho/" target="_blank" rel="noopener">YACHO(SIM3)</a></p></footer>
 </body>
 </html>
