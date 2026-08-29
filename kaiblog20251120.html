@@ -311,4 +311,315 @@
             padding: 30px;
             border-radius: 12px;
             width: 90%;
-            max-width
+            max-width: 500px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 10000;
+        }
+
+        .search-modal__content h2 {
+            font-size: 1.4rem;
+            color: var(--dark-blue);
+            border-bottom: 2px solid var(--primary-blue);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .search-result-list {
+            list-style: none;
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+
+        .search-result-list li {
+            margin-bottom: 12px;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 8px;
+        }
+
+        .search-result-list a {
+            color: var(--primary-blue);
+            font-weight: bold;
+            display: block;
+        }
+        
+        .search-result-list a:hover {
+            color: var(--accent-blue);
+            text-decoration: underline;
+        }
+
+        .search-modal__actions {
+            text-align: right;
+        }
+
+        .search-modal__actions button {
+            padding: 8px 20px;
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .search-modal__actions button:hover {
+            background-color: #5a6268;
+        }
+
+        .search-hint {
+            color: #d32f2f;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        /* ==========================================
+           自作ポップアップ（注意事項モーダル）のデザイン
+        ========================================== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10001;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--white);
+            width: 90%;
+            max-width: 500px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .modal-title {
+            font-size: 1.1rem;
+            color: var(--dark-blue);
+            border-bottom: 2px solid var(--primary-blue);
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .modal-text {
+            font-size: 0.9rem;
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .modal-text p {
+            margin-bottom: 10px;
+        }
+
+        .modal-close-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.2s;
+        }
+
+        .modal-close-btn:hover {
+            background-color: var(--accent-blue);
+        }
+
+        /* スマホ対応 */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-menu {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            .nav-item a {
+                padding: 8px 12px;
+                font-size: 0.85rem;
+            }
+
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+            }
+
+            .blog-article {
+                padding: 20px;
+            }
+
+            .blog-title {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+<meta name="generator" content="simple-item-master-three">
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo"></div>
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="fantop.html">ホーム</a></li>
+                    <li class="nav-item"><a href="javascript:void(0);" class="active">メンバーブログ</a></li>
+                    <li class="nav-item"><a href="javascript:void(0);">Media</a></li>
+                    <li class="nav-item"><a href="javascript:void(0);">Event</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <main class="main-content">
+            <article class="blog-article">
+                
+                <div class="blog-meta">
+                    <span class="blog-date">2025.11.20</span>
+                    <span class="blog-author">投稿者：KAI</span>
+                </div>
+
+                <h1 class="blog-title">FOCUS</h1>
+
+                <div class="blog-image-wrapper">
+                 <img src="./media/img/book.jpg" alt="book.jpg" class="blog-image">
+                </div>
+
+                <div class="blog-body">
+                    <p>みんな、こんにちは！KAIです。</p>
+                    <p>最近は帰ってきたらルーティンみたいになってる事をしたあと、部屋を少し暗めにして読書をするんだ。</p>
+                    
+                    <p>この前のラジオで最近読書が趣味って答えたからかな？ファンレターとかでも「最近どんな本読んでるの？」ってよく聞かれるので、ここ数週間で読んだ本を4冊ほど紹介しちゃいます。<br>
+                    ちょっと好みが偏ってるかもしれないけど、気になったら読んでみてね。</p>
+                    
+                    <p>①『終わらない放課後の檻』/有馬 蓮<br>
+                    学校の旧校舎に閉じ込められた幼馴染の男女が、極限状態の中で「外に出るまで絶対にお互いを裏切らない」という血の契約を交わすサスペンス小説。<br>
+                    ちょっと過激な描写もあるんだけど、お互いがお互いしか見えなくなっていく共依存の心理描写がリアルで、一気に読んじゃいました。愛って時に残酷だよね。</p>
+                    
+                    <p>②『君を縛る青い糸』/ 星野みう<br>
+                    これは映画にもなってるし有名なんだけど、とにかくヒロインの男の子への執着がすごいの！「私以外の女の子と喋ったら死ぬからね」って笑顔で言うような子。<br>
+                    普通なら怖いはずなのに、男の子側もそれを「そこまで愛されてるならいっか」って受け入れちゃうんだ。歪んでるかもしれないけど、究極の純愛の形かも、ちょっといいなって思ったり。</p>
+                    
+                    <p>③『約束の箱庭で、僕らは』/ 最上 紡<br>
+                    超おすすめ！<br>
+                    これは僕が何回も、何十回も繰り返し読んでいる宝物みたいな一冊です。<br>
+                    昔ヒロインと交わした小さな約束を、大人になってもずーーーっと信じ続けて、その約束を果たすためだけに人生のすべてを捧げる男の子の物語。<br>
+                    「信じていて良かった」っていう泣いてる主人公のセリフがすごく心に刺さるんだよね。僕も約束を大切にするタイプだから、すごく共感しちゃいます。本当に名作なので、みんなにも一番読んでほしいな。</p>
+                    
+                    <p>④『嘘つきな嘘つき心臓』/ 著者：霧島 潤<br>
+                    お互いに絶対に嘘をつかないと約束した恋人たちが、小さな隠し事をきっかけに破滅していくサイコホラー。<br>
+                    読んでいてゾクゾクしました。</p>
+                    
+                    <p>最近はこんな感じの、ちょっと人間の深い感情が描かれた作品ばかり選んじゃうんだ（笑）。FOCUSの11月号でも紹介してるからそっちもチェックしてね！</p>
+                    
+                    <p>もし僕にオススメしたい本があったら、今度教えてね！</p>
+                    
+                    <p>それでは、おやすみなさい。</p>
+                </div>
+
+            </article>
+        </main>
+
+        <aside class="sidebar">
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">SEARCH & INFO</h3>
+
+                <div class="search-form">
+                    <input type="text" id="searchInput" class="search-input" placeholder="キーワードを入力..." required>
+                    <button type="button" id="searchBtn" class="search-button">検索</button>
+                </div>
+
+                <button type="button" class="notice-button" onclick="showNotice()">
+                    <span>⚠️</span> ブログ検索の注意事項
+                </button>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">MEMBER</h3>
+                <ul class="member-list">
+                    <li><a href="javascript:void(0);">KOU</a></li>
+                    <li><a href="javascript:void(0);">YUTO</a></li>
+                    <li><a href="javascript:void(0);">REI</a></li>
+                    <li><a href="javascript:void(0);">KAI</a></li>
+                    <li><a href="javascript:void(0);">SHOTA</a></li>
+                </ul>
+            </div>
+
+        </aside>
+
+    </div>
+
+    <div class="modal-overlay" id="noticeModal">
+        <div class="modal-content">
+            <h3 class="modal-title">⚠️ ブログ検索に関する注意事項</h3>
+            <div class="modal-text">
+                <p>会員の皆様への公正を期すため、ご入会いただいた時点以降の記事から閲覧できるよう最新記事のみ表示されています。</p>
+                <p>「過去の記事」の閲覧をご希望の場合は、ブログ上部の検索バーより、ご覧になりたい記事の「タイトル」を入力して検索を行ってください。</p>
+                <p><strong>※検索は「タイトル完全一致」のみ対応しております。</strong></p>
+                <p>※気になる記事や思い出の記事のタイトルを各自で記憶・お控えいただけますようお願い申し上げます。<br>（例：「初ブログ」）</p>
+            </div>
+            <button type="button" class="modal-close-btn" onclick="closeNotice()">閉じる</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="javascript:void(0);">ファンクラブについて</a>
+            <a href="javascript:void(0);">利用規約</a>
+            <a href="javascript:void(0);">プライバシーポリシー</a>
+            <a href="javascript:void(0);">お問い合わせ</a>
+        </div>
+        <p>このサイトはフィクションです</p>
+        <p class="copyright">&copy; 初心者 / 秘密のファンミーティング</p>
+    
+        <p class="yacho-powered-by" style="margin-top:8px;font-size:11px;opacity:.55;">Powered by <a href="https://sim3.net/yacho/" target="_blank" rel="noopener">YACHO(SIM3)</a></p>
+    </footer>
+
+    <script>
+        // 注意事項ボタン（モーダルを開く）
+        function showNotice() {
+            document.getElementById('noticeModal').classList.add('active');
+        }
+
+        // 閉じるボタン（モーダルを閉じる）
+        function closeNotice() {
+            document.getElementById('noticeModal').classList.remove('active');
+        }
+    </script>
+
+    <script>window.YACHO_BASE = "./"; window.YACHO_PROVIDER_MODE = "json";</script>
+    <script type="module" src="./assets/js/core/index.js"></script>
+</body>
+</html>
