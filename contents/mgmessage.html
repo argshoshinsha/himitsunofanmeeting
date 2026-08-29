@@ -1,0 +1,75 @@
+<!-- ▼▼▼ ここから画面の表示内容(HTML) ▼▼▼ -->
+    <div class="container">
+        
+        <!-- ▼ タイトル ▼ -->
+        <h1 class="title">緊急連絡</h1>
+
+        <!-- ▼ コメント（状況説明やフレーバーテキスト） ▼ -->
+        <div class="comment">
+          <p>当サイトをご覧の方へ大切なお知らせとお願い</P>
+<p>いつもSEARCHLIGHT、およびKAIを応援いただき、誠にありがとうございます。</p>
+
+<p>先日開催されましたおはなし会の終了後、メンバーのKAIと一切の連絡が取れなくなっております。
+<br>予定されていた収録にも姿を見せず、自宅マンションにも本人の姿はなく、対応を進めていました。</p>
+
+<p>手掛かりを探して我々スタッフがKAIの足取りを追っていたところ、このブログの中に、妙なシステムが仕込まれているのを発見しました。</p>
+
+<p>KAIは最近、精神的にかなり不安定な様子が見られ、通院していたことも分かっています。
+<br>スタッフ一同でこのシステムの解析を進めておりますが、この場所にKAIの居場所に直結する内容が隠されている可能性が非常に高いです。</p>
+
+<p>このシステムをお使いの貴方様なら、今回の件について何かご存じのはず。<br>どうか力を貸してください。</p>
+
+<p>もし、KAIがこのブログ内に残したクイズから、彼が現在いる場所が判明ましたら、以下の入力フォームに情報を提供していただけないでしょうか。</p>
+
+<p>一刻を争う事態です。どんなに小さな手がかりでも構いません。
+<br>KAIを無事に救出するため、皆様のご協力を心よりお願い申し上げます。</p>
+
+<p>株式会社ライトプロモーション</p>
+<p>SEARCHLIGHTマネジメント部 山田</p>
+        </div>
+
+        <!-- ▼ 問題文 ▼ -->
+        <div class="question-box">
+            <p class="question">
+                KAIの居場所を教えて下さい
+            </p>
+        </div>
+
+        <!-- ▼ 解答入力エリア ▼ -->
+        <div class="answer-area">
+            <input type="text" id="answerInput" placeholder="Enter password...">
+            <button onclick="checkAnswer()">送信</button>
+        </div>
+        <p id="errorMessage" class="error"></p>
+
+    </div>
+    <!-- ▲▲▲ ここまで画面の表示内容(HTML) ▲▲▲ -->
+
+
+    <!-- ▼▼▼ ここから正誤判定の動き(JavaScript) ▼▼▼ -->
+    <script>
+        function checkAnswer() {
+            // 【変更】ここに正解のキーワードを入力
+            const correctAnswer = "プロメッサ西庵公園3101号室"; 
+            
+            // 【変更】正解した時に移動する次のページのURL（ファイル名）を入力
+            const nextPage = "happyend2.html"; 
+
+            const input = document.getElementById("answerInput").value;
+            const errorMsg = document.getElementById("errorMessage");
+
+            if (input === correctAnswer) {
+                // 正解のときの処理（文字色を白に変更して可読性を確保）
+                errorMsg.style.color = "#ffffff";
+                errorMsg.innerText = "Check Answer... 転送中 ...";
+                
+                // 1.5秒後に次のページへ移動
+                setTimeout(() => { window.location.href = nextPage; }, 1500);
+            } else {
+                // 不正解のときの処理
+                errorMsg.style.color = "#ff3333"; // 赤文字に変更
+                errorMsg.innerText = "そこにKAIは居ないようです";
+            }
+        }
+    </script>
+    <!-- ▲▲▲ ここまで正誤判定の動き(JavaScript) ▲▲▲ -->

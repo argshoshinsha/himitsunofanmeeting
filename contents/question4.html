@@ -1,0 +1,77 @@
+<!-- ▼▼▼ ここから画面の表示内容(HTML) ▼▼▼ -->
+    <div class="container">
+        
+        <!-- ▼ タイトル ▼ -->
+        <h1 class="title">第4問</h1>
+
+        <!-- ▼ コメント（状況説明やフレーバーテキスト） ▼ -->
+        <div class="comment">
+          <p>大正解！さすがだね雑誌もしっかりチェックしてくれてありがとう！</p>
+          <p>僕の大切な思い出にちょっと近くて、共感することが多くて何度も読み返してるんだ。</p>
+          <p>次は第4問だけどどう？ここまで簡単だった？それとも難しかった？</p>
+          <p>全部で5問作ったからさ、僕との思い出を振り返るつもりで楽しんでやってくれてるといいな</p>
+        </div>
+
+        <!-- ▼ 問題文 ▼ -->
+        <div class="question-box">
+            <p class="question">
+                第4問 僕が小さなころにした約束は？
+            </p>
+        </div>
+
+        <!-- ▼ 解答入力エリア ▼ -->
+        <div class="answer-area">
+            <input type="text" id="answerInput" placeholder="Enter password...">
+            <button onclick="checkAnswer()">送信</button>
+        </div>
+        <p id="errorMessage" class="error"></p>
+
+    </div>
+
+    <!-- ＝＝＝ ここからポップアップウィンドウ（緊急連絡） ＝＝＝ -->
+    <div id="emergencyPopup" class="popup-container">
+        <p class="popup-text">【メッセージ】<br>マネージャーより緊急連絡</p>
+        <button class="popup-btn" onclick="openEmergencyLink()">詳細を確認する</button>
+    </div>
+    <!-- ＝＝＝ ポップアップウィンドウここまで ＝＝＝ -->
+
+    <!-- ▲▲▲ ここまで画面の表示内容(HTML) ▲▲▲ -->
+
+
+    <!-- ▼▼▼ ここから正誤判定の動き(JavaScript) ▼▼▼ -->
+    <script>
+        // --- 既存の解答チェック処理 ---
+        function checkAnswer() {
+            const correctAnswer = "結婚して一緒にマンションの最上階に住む"; 
+            const nextPage = "questionlast.html"; 
+
+            const input = document.getElementById("answerInput").value;
+            const errorMsg = document.getElementById("errorMessage");
+
+            if (input === correctAnswer) {
+                errorMsg.style.color = "#1e90ff";
+                errorMsg.innerText = "Check Answer... 転送中 ...";
+                setTimeout(() => { window.location.href = nextPage; }, 1500);
+            } else {
+                errorMsg.style.color = "#ff0000";
+                errorMsg.innerText = "Access Denied. 不正解";
+            }
+        }
+
+        // ＝＝＝ ここからポップアップ用の処理追加 ＝＝＝
+        
+        // ページが読み込まれてから10秒（10000ミリ秒）後にポップアップを表示
+        setTimeout(() => {
+            document.getElementById("emergencyPopup").classList.add("show");
+        }, 10000); 
+
+        // ポップアップのボタンが押された時の処理
+        function openEmergencyLink() {
+            // 【変更】別窓で開きたいURLをここに設定してください
+            const emergencyUrl = "mgmessage.html"; 
+            
+            // _blank を指定することで、新しいタブ（別窓）でリンクが開きます
+            window.open(emergencyUrl, "_blank");
+        }
+    </script>
+    <!-- ▲▲▲ ここまで正誤判定の動き(JavaScript) ▲▲▲ -->

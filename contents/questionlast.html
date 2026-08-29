@@ -1,0 +1,70 @@
+<!-- ▼▼▼ ここから画面の表示内容(HTML) ▼▼▼ -->
+    <div class="container">
+        
+        <!-- ▼ タイトル ▼ -->
+        <h1 class="title">最終問題</h1>
+
+        <!-- ▼ コメント（状況説明やフレーバーテキスト） ▼ -->
+        <div class="comment">
+         <p>	ここまで答えてくれて、本当にありがとう。	</p>
+		
+<p>	幼い頃にあの約束をしてから、僕は「絶対にあのマンションに住むんだ」って決めてたんだよ。 	
+<br>	苦しいことがあった時も、仕事で失敗した時も、心を落ち着かせるためにあのマンションの近くまで行っていたんだ。	
+<br>	今の家からは少し離れているんだけど……最近は何もなくてもついつい向かっちゃって、自分の中のルーティンみたいになってるんだよね。	</p>
+		
+<p>	雑誌・ラジオ・テレビ・MC…
+  <br>お仕事で一度も話したことがない大切な場所。 <br>でも君なら、絶対にわかるよね	</p>
+		
+<p>	これが最後のクイズだよ。 秘密のファンミーティングの会場で、ずっと待ってるからね。	</p>
+
+
+
+ 
+
+        </div>
+
+        <!-- ▼ 問題文 ▼ -->
+        <div class="question-box">
+            <p class="question">
+                最終問題 約束のマンションの名前は？
+            </p>
+        </div>
+
+        <!-- ▼ 解答入力エリア ▼ -->
+        <div class="answer-area">
+            <input type="text" id="answerInput" placeholder="Enter password...">
+            <button onclick="checkAnswer()">送信</button>
+        </div>
+        <p id="errorMessage" class="error"></p>
+
+    </div>
+    <!-- ▲▲▲ ここまで画面の表示内容(HTML) ▲▲▲ -->
+
+
+    <!-- ▼▼▼ ここから正誤判定の動き(JavaScript) ▼▼▼ -->
+    <script>
+        function checkAnswer() {
+            // 【変更】ここに正解のキーワードを入力
+            const correctAnswer = "プロメッサ西庵公園"; 
+            
+                    // 【変更】正解した時に移動する次のページのURL（ファイル名）を入力
+            const nextPage = "promisemarriage.html"; 
+
+            const input = document.getElementById("answerInput").value;
+            const errorMsg = document.getElementById("errorMessage");
+
+            if (input === correctAnswer) {
+                // 正解のときの処理
+                errorMsg.style.color = "#1e90ff";
+                errorMsg.innerText = "Check Answer... 転送中 ...";
+                
+                // 1.5秒後に次のページへ移動
+                setTimeout(() => { window.location.href = nextPage; }, 1500);
+            } else {
+                // 不正解のときの処理
+                errorMsg.style.color = "#ff0000"; // 赤文字
+                errorMsg.innerText = "Access Denied. 不正解";
+            }
+        }
+    </script>
+    <!-- ▲▲▲ ここまで正誤判定の動き(JavaScript) ▲▲▲ -->

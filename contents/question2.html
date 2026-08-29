@@ -1,0 +1,62 @@
+<!-- ▼▼▼ ここから画面の表示内容(HTML) ▼▼▼ -->
+    <div class="container">
+        
+        <!-- ▼ タイトル ▼ -->
+        <h1 class="title">第2問</h1>
+
+        <!-- ▼ コメント（状況説明やフレーバーテキスト） ▼ -->
+        <div class="comment">
+          <p>	第1問正解！おめでとう！ さすがに簡単だったよね。	</P>
+		
+<p>	じゃあ次から、少しずつ難しくしていこうかな。 	</P>
+		
+<p>	ペットっていうか大切な家族のことだし、みんなに知って欲しくてブログやMCでもよく話してるから……わかるよね？	</P>
+ 
+
+        </div>
+
+        <!-- ▼ 問題文 ▼ -->
+        <div class="question-box">
+            <p class="question">
+                第2問 僕が飼っている猫の名前は？
+            </p>
+        </div>
+
+        <!-- ▼ 解答入力エリア ▼ -->
+        <div class="answer-area">
+            <input type="text" id="answerInput" placeholder="Enter password...">
+            <button onclick="checkAnswer()">送信</button>
+        </div>
+        <p id="errorMessage" class="error"></p>
+
+    </div>
+    <!-- ▲▲▲ ここまで画面の表示内容(HTML) ▲▲▲ -->
+
+
+    <!-- ▼▼▼ ここから正誤判定の動き(JavaScript) ▼▼▼ -->
+    <script>
+        function checkAnswer() {
+            // 【変更】ここに正解のキーワードを入力
+            const correctAnswer = "シアン"; 
+            
+            // 【変更】正解した時に移動する次のページのURL（ファイル名）を入力
+            const nextPage = "question3.html"; 
+
+            const input = document.getElementById("answerInput").value;
+            const errorMsg = document.getElementById("errorMessage");
+
+            if (input === correctAnswer) {
+                // 正解のときの処理
+                errorMsg.style.color = "#1e90ff";
+                errorMsg.innerText = "Check Answer... 転送中 ...";
+                
+                // 1.5秒後に次のページへ移動
+                setTimeout(() => { window.location.href = nextPage; }, 1500);
+            } else {
+                // 不正解のときの処理
+                errorMsg.style.color = "#ff0000"; // 赤文字
+                errorMsg.innerText = "Access Denied. 不正解";
+            }
+        }
+    </script>
+    <!-- ▲▲▲ ここまで正誤判定の動き(JavaScript) ▲▲▲ -->
