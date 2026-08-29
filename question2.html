@@ -13,9 +13,12 @@
             color: #ffffff; /* マトリックス風の緑 */
             font-family: 'Courier New', Consolas, monospace; /* プログラムっぽいフォント */
             display: flex;
+         flex-direction: column; /* ★修正：枠とフッターを強制的に縦並びにする */
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh; /* ★修正：見切れ防止のため min-height に変更 */
+            padding: 20px;
+            box-sizing: border-box;
             margin: 0;
         }
 
