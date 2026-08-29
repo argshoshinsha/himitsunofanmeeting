@@ -442,4 +442,186 @@
             transition: background-color 0.2s;
         }
 
-        .modal-close
+        .modal-close-btn:hover {
+            background-color: var(--accent-blue);
+        }
+
+        /* スマホ対応 */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-menu {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            .nav-item a {
+                padding: 8px 12px;
+                font-size: 0.85rem;
+            }
+
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+            }
+
+            .blog-article {
+                padding: 20px;
+            }
+
+            .blog-title {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+<meta name="generator" content="simple-item-master-three">
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo"></div>
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="fantop.html">ホーム</a></li>
+                    <li class="nav-item"><a href="javascript:void(0);" class="active">メンバーブログ</a></li>
+                    <li class="nav-item"><a href="javascript:void(0);">Media</a></li>
+                    <li class="nav-item"><a href="javascript:void(0);">Event</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <main class="main-content">
+            <article class="blog-article">
+                
+                <div class="blog-meta">
+                    <span class="blog-date">2025.11.20</span>
+                    <span class="blog-author">投稿者：KAI</span>
+                </div>
+
+                <h1 class="blog-title">西庵公園</h1>
+
+                <div class="blog-image-wrapper">
+                    <img src="./media/img/memorie.jpg" alt="memorie.jpg" class="blog-image">
+                </div>
+
+                <div class="blog-body">
+                    <p>みんな、こんばんは。KAIです。<br>
+                    シアンを撫でていたら、なんだかふと昔のことを思い出しちゃいました。</p>
+                    
+                    <p>今日は、僕の心の中にずっとある「大切な約束」について、少しだけお話しさせてください。</p>
+                    
+                    <p>僕がまだ小さかった頃、よく遊んでいた子がいたんだよね。</p>
+                    
+                    <p>僕の通ってた幼稚園の近くに西庵公園って公園があってね、そこでよく一緒に遊んでたんだ。<br>
+                    今思い返すと近くに住んでるって言ってたのに幼稚園は一緒じゃなかったんだよね、どこに通ってたんだろ？まぁその話はいっか</p>
+                    
+                    <p>でね、ある日、砂場で一緒に遊んでいるときに、僕が「大きくなってもずっと一緒に遊びたいね」って言ったら、<br>
+                    「じゃあ、大人になって、結婚すればいっぱい遊べるね！」<br>
+                    って言ってくれたんだ。</p>
+                    
+                    <p>なんだか嬉しくなっちゃって近くにあった大きなマンションを指さして、『結婚して一緒にマンションの最上階に住む』って約束したんだ。</p>
+                    
+                    <p>幼い子供同士の、ただの可愛いおままごと、口約束かもしれない。<br>
+                    周りの大人はみんな「子供の言うことだから」って笑ってたけどね。</p>
+                    
+                    <p>でもあの後その子は急に公園に来なくなっちゃって、会えなくなちゃったんだ。<br>
+                    すっごく悲しかったけど、いつかあんなマンションに住めるようなビックなアイドルになるんだ！って想いだけは大事にしてるんだ。</p>
+                            
+                    <p>ダンスがうまくいかなかったりとかなんかくじけそうな事があったりするとさ、気づいたら見に行っちゃってるんだよね。</p>
+
+                    <p>どんなマンションか知りたくなっちゃった？<br>
+                    内緒(笑)秘密なんだ</p>
+                    
+                    <p>あ、ちょっとポエミーな内容になっちゃって恥ずかしいな！<br>
+                    今夜はこれでおしまい。</p>
+                    
+                    <p>みんな、おやすみなさい。</p>
+                </div>
+
+            </article>
+        </main>
+
+        <aside class="sidebar">
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">SEARCH & INFO</h3>
+
+                <div class="search-form">
+                    <input type="text" id="searchInput" class="search-input" placeholder="キーワードを入力..." required>
+                    <button type="button" id="searchBtn" class="search-button">検索</button>
+                </div>
+
+                <button type="button" class="notice-button" onclick="showNotice()">
+                    <span>⚠️</span> ブログ検索の注意事項
+                </button>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">MEMBER</h3>
+                <ul class="member-list">
+                    <li><a href="javascript:void(0);">KOU</a></li>
+                    <li><a href="javascript:void(0);">YUTO</a></li>
+                    <li><a href="javascript:void(0);">REI</a></li>
+                    <li><a href="kaiblog20251130.html">KAI</a></li>
+                    <li><a href="javascript:void(0);">SHOTA</a></li>
+                </ul>
+            </div>
+
+        </aside>
+
+    </div>
+
+    <div class="modal-overlay" id="noticeModal">
+        <div class="modal-content">
+            <h3 class="modal-title">⚠️ ブログ検索に関する注意事項</h3>
+            <div class="modal-text">
+                <p>会員の皆様への公正を期すため、ご入会いただいた時点以降の記事から閲覧できるよう最新記事のみ表示されています。</p>
+                <p>「過去の記事」の閲覧をご希望の場合は、ブログ上部の検索バーより、ご覧になりたい記事の「タイトル」を入力して検索を行ってください。</p>
+                <p><strong>※検索は「タイトル完全一致」のみ対応しております。</strong></p>
+                <p>※気になる記事や思い出の記事のタイトルを各自で記憶・お控えいただけますようお願い申し上げます。<br>（例：「初ブログ」）</p>
+            </div>
+            <button type="button" class="modal-close-btn" onclick="closeNotice()">閉じる</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="javascript:void(0);">ファンクラブについて</a>
+            <a href="javascript:void(0);">利用規約</a>
+            <a href="javascript:void(0);">プライバシーポリシー</a>
+            <a href="javascript:void(0);">お問い合わせ</a>
+        </div>
+        <p>このサイトはフィクションです</p>
+        <p class="copyright">&copy; 初心者 / 秘密のファンミーティング</p>
+    
+        <p class="yacho-powered-by" style="margin-top:8px;font-size:11px;opacity:.55;">Powered by <a href="https://sim3.net/yacho/" target="_blank" rel="noopener">YACHO(SIM3)</a></p>
+    </footer>
+
+    <script>
+        // 注意事項ボタン（モーダルを開く）
+        function showNotice() {
+            document.getElementById('noticeModal').classList.add('active');
+        }
+
+        // 閉じるボタン（モーダルを閉じる）
+        function closeNotice() {
+            document.getElementById('noticeModal').classList.remove('active');
+        }
+    </script>
+
+    <script>window.YACHO_BASE = "./"; window.YACHO_PROVIDER_MODE = "json";</script>
+    <script type="module" src="./assets/js/core/index.js"></script>
+</body>
+</html>
