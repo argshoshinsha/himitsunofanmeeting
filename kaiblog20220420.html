@@ -446,41 +446,7 @@
             background-color: var(--accent-blue);
         }
 
-        /* スマホ対応 */
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .nav-menu {
-                width: 100%;
-                justify-content: center;
-                flex-wrap: wrap;
-                gap: 8px;
-            }
-
-            .nav-item a {
-                padding: 8px 12px;
-                font-size: 0.85rem;
-            }
-
-            .container {
-                flex-direction: column;
-            }
-
-            .sidebar {
-                width: 100%;
-            }
-
-            .blog-article {
-                padding: 20px;
-            }
-
-            .blog-title {
-                font-size: 1.4rem;
-            }
-        }/* ==========================================
+        /* ==========================================
            フッター
         ========================================== */
         footer {
@@ -527,7 +493,6 @@
 </head>
 <body>
 
-    <!-- ヘッダーエリア -->
     <header>
         <div class="header-container">
             <div class="logo"></div>
@@ -542,10 +507,8 @@
         </div>
     </header>
 
-    <!-- メインコンテンツ -->
     <div class="container">
         
-        <!-- ブログ本文エリア -->
         <main class="main-content">
             <article class="blog-article">
                 
@@ -591,26 +554,21 @@
             </article>
         </main>
 
-        <!-- サイドバー（検索・注意事項 ＋ メンバー一覧） -->
         <aside class="sidebar">
 
-            <!-- MEMBERの上の枠（検索＆注意事項） -->
             <div class="sidebar-widget">
                 <h3 class="widget-title">SEARCH & INFO</h3>
 
-                <!-- 記事検索窓 -->
                 <div class="search-form">
                     <input type="text" id="searchInput" class="search-input" placeholder="キーワードを入力..." required>
                     <button type="button" id="searchBtn" class="search-button">検索</button>
                 </div>
 
-                <!-- 注意事項ボタン -->
                 <button type="button" class="notice-button" onclick="showNotice()">
                     <span>⚠️</span> ブログ検索の注意事項
                 </button>
             </div>
 
-            <!-- MEMBERウィジェット -->
             <div class="sidebar-widget">
                 <h3 class="widget-title">MEMBER</h3>
                 <ul class="member-list">
@@ -626,7 +584,6 @@
 
     </div>
 
-    <!-- 自作ポップアップ（注意事項モーダル）の構造 -->
     <div class="modal-overlay" id="noticeModal">
         <div class="modal-content">
             <h3 class="modal-title">⚠️ ブログ検索に関する注意事項</h3>
@@ -640,7 +597,6 @@
         </div>
     </div>
 
-    <!-- フッターエリア -->
     <footer>
         <div class="footer-links">
             <a href="javascript:void(0);">ファンクラブについて</a>
@@ -654,7 +610,6 @@
         <p class="yacho-powered-by" style="margin-top:8px;font-size:11px;opacity:.55;">Powered by <a href="https://sim3.net/yacho/" target="_blank" rel="noopener">YACHO(SIM3)</a></p>
     </footer>
 
-    <!-- JavaScript（機能処理） -->
     <script>
         // 注意事項ボタン（モーダルを開く）
         function showNotice() {
@@ -667,9 +622,7 @@
         }
     </script>
 
-    <!-- YACHO コアスクリプト -->
     <script>window.YACHO_BASE = "./"; window.YACHO_PROVIDER_MODE = "json";</script>
     <script type="module" src="./assets/js/core/index.js"></script>
 </body>
-</html>
 </html>
