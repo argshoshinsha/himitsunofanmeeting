@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>6thシングル発売記念おはなし会</title>
+    <title>初ブログ</title>
     <style>
         /* ==========================================
            全体設定・カラー（青と白を基調）
@@ -329,3 +329,305 @@
             max-height: 300px;
             overflow-y: auto;
             margin-bottom: 20px;
+        }
+
+        .search-result-list li {
+            margin-bottom: 12px;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 8px;
+        }
+
+        .search-result-list a {
+            color: var(--primary-blue);
+            font-weight: bold;
+            display: block;
+        }
+        
+        .search-result-list a:hover {
+            color: var(--accent-blue);
+            text-decoration: underline;
+        }
+
+        .search-modal__actions {
+            text-align: right;
+        }
+
+        .search-modal__actions button {
+            padding: 8px 20px;
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .search-modal__actions button:hover {
+            background-color: #5a6268;
+        }
+
+        .search-hint {
+            color: #d32f2f;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        /* ==========================================
+           自作ポップアップ（注意事項モーダル）のデザイン
+        ========================================== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10001; /* 検索モーダルより手前に */
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--white);
+            width: 90%;
+            max-width: 500px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .modal-title {
+            font-size: 1.1rem;
+            color: var(--dark-blue);
+            border-bottom: 2px solid var(--primary-blue);
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .modal-text {
+            font-size: 0.9rem;
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .modal-text p {
+            margin-bottom: 10px;
+        }
+
+        .modal-close-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.2s;
+        }
+
+        .modal-close-btn:hover {
+            background-color: var(--accent-blue);
+        }
+
+        /* スマホ対応 */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-menu {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            .nav-item a {
+                padding: 8px 12px;
+                font-size: 0.85rem;
+            }
+
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+            }
+
+            .blog-article {
+                padding: 20px;
+            }
+
+            .blog-title {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+<meta name="generator" content="simple-item-master-three">
+</head>
+<body>
+
+    <!-- ヘッダーエリア -->
+    <header>
+        <div class="header-container">
+            <div class="logo"></div>
+            <nav>
+                <ul class="nav-menu">
+                   <li class="nav-item"><a href="fantop.html">ホーム</a></li>
+                    <li class="nav-item"><a href="javascript:void(0);" class="active">メンバーブログ</a></li>
+                    <li class="nav-item"><a href="javascript:void(0);">Media</a></li>
+                    <li class="nav-item"><a href="javascript:void(0);">Event</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <div class="container">
+        
+        <!-- ブログ本文エリア -->
+        <main class="main-content">
+            <article class="blog-article">
+                
+                <div class="blog-meta">
+                    <span class="blog-date">2022.04.20</span>
+                    <span class="blog-author">投稿者：KAI</span>
+                </div>
+
+                <h1 class="blog-title">初ブログ</h1>
+
+                <div class="blog-image-wrapper">
+                  <img src="./media/img/lesson.jpg" alt="lesson.jpg" class="blog-image">
+                </div>
+
+                <div class="blog-body">
+                    <p>SEARCHLIGHTのファンクラブがスタートしました！記念すべき最初の更新です。</p>
+                    <p>僕のこと見つけてくれてありがとう🌟<br>改めて、僕のことをもっと知ってもらうために簡単な自己紹介をさせてください！</p>
+
+                    <p>名前: KAI（カイ）</p>
+
+                    <p>メンバーカラー: ブルー 💙</p>
+
+                    <p>出身地: 千葉県 🥜</p>
+
+                    <p>誕生日：2005/12/5</p>
+
+                    <p>趣味: ゲーム、ダンス</p>
+
+                    <p>好きな食べ物: ハンバーグ</p>
+
+                    <p>夢：タワマンに住むこと！</p>
+
+                    <p>昔住んでた所の近くにものすごく高くて立派な、お城みたいなマンションがあって「いつか絶対に、あの一番高い部屋に住むんだ」って決めたんだよね。</p>
+                    <p>SEARCHLIGHTとしてもっともっと大きくなって、いつか絶対にその夢を叶えたいと思います！</p>
+
+                    <p>その最上階の部屋に招待できるように、これからも全力で頑張るね。</p>
+
+                    <p>これからこのブログで、僕の日常や好きなものをたくさん発信していくので、ぜひ毎回チェックしてもらえると嬉しいです！</p>
+
+                    <p>ダンスと歌のレッスン頑張るよ♡次の更新もお楽しみに！</p>
+                </div>
+
+            </article>
+        </main>
+
+        <!-- サイドバー（検索・注意事項 ＋ メンバー一覧） -->
+        <aside class="sidebar">
+
+            <!-- MEMBERの上の枠（検索＆注意事項） -->
+            <div class="sidebar-widget">
+                <h3 class="widget-title">SEARCH & INFO</h3>
+
+                <!-- 記事検索窓 -->
+                <div class="search-form">
+                    <input type="text" id="searchInput" class="search-input" placeholder="キーワードを入力..." required>
+                    <button type="button" id="searchBtn" class="search-button">検索</button>
+                </div>
+
+                <!-- 注意事項ボタン -->
+                <button type="button" class="notice-button" onclick="showNotice()">
+                    <span>⚠️</span> ブログ検索の注意事項
+                </button>
+            </div>
+
+            <!-- MEMBERウィジェット -->
+            <div class="sidebar-widget">
+                <h3 class="widget-title">MEMBER</h3>
+                <ul class="member-list">
+                    <li><a href="javascript:void(0);">KOU</a></li>
+                    <li><a href="javascript:void(0);">YUTO</a></li>
+                    <li><a href="javascript:void(0);">REI</a></li>
+                    <li><a href="javascript:void(0);">KAI</a></li>
+                    <li><a href="javascript:void(0);">SHOTA</a></li>
+                </ul>
+            </div>
+
+        </aside>
+
+    </div>
+
+    <!-- 自作ポップアップ（注意事項モーダル）の構造 -->
+    <div class="modal-overlay" id="noticeModal">
+        <div class="modal-content">
+            <h3 class="modal-title">⚠️ ブログ検索に関する注意事項</h3>
+            <div class="modal-text">
+                <p>会員の皆様への公正を期すため、ご入会いただいた時点以降の記事から閲覧できるよう最新記事のみ表示されています。</p>
+                <p>「過去の記事」の閲覧をご希望の場合は、ブログ上部の検索バーより、ご覧になりたい記事の「タイトル」を入力して検索を行ってください。</p>
+                <p><strong>※検索は「タイトル完全一致」のみ対応しております。</strong></p>
+                <p>※気になる記事や思い出の記事のタイトルを各自で記憶・お控えいただけますようお願い申し上げます。<br>（例：「初ブログ」）</p>
+            </div>
+            <button type="button" class="modal-close-btn" onclick="closeNotice()">閉じる</button>
+        </div>
+    </div>
+
+    <!-- フッターエリア -->
+    <footer>
+        <div class="footer-links">
+            <a href="javascript:void(0);">ファンクラブについて</a>
+            <a href="javascript:void(0);">利用規約</a>
+            <a href="javascript:void(0);">プライバシーポリシー</a>
+            <a href="javascript:void(0);">お問い合わせ</a>
+        </div>
+        <p>このサイトはフィクションです</p>
+        <p class="copyright">&copy; 初心者 / 秘密のファンミーティング</p>
+    
+        <p class="yacho-powered-by" style="margin-top:8px;font-size:11px;opacity:.55;">Powered by <a href="https://sim3.net/yacho/" target="_blank" rel="noopener">YACHO(SIM3)</a></p>
+    </footer>
+
+    <!-- JavaScript（機能処理） -->
+    <script>
+        // 注意事項ボタン（モーダルを開く）
+        function showNotice() {
+            document.getElementById('noticeModal').classList.add('active');
+        }
+
+        // 閉じるボタン（モーダルを閉じる）
+        function closeNotice() {
+            document.getElementById('noticeModal').classList.remove('active');
+        }
+    </script>
+
+    <!-- YACHO コアスクリプト -->
+    <script>window.YACHO_BASE = "./"; window.YACHO_PROVIDER_MODE = "json";</script>
+    <script type="module" src="./assets/js/core/index.js"></script>
+</body>
+</html>
