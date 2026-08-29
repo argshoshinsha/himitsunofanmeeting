@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>初ブログ</title>
+    <title>6thシングル発売記念おはなし会</title>
     <style>
         /* ==========================================
            全体設定・カラー（青と白を基調）
@@ -386,7 +386,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 10001; /* 検索モーダルより手前に */
+            z-index: 10001;
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -486,13 +486,12 @@
 </head>
 <body>
 
-    <!-- ヘッダーエリア -->
     <header>
         <div class="header-container">
             <div class="logo"></div>
             <nav>
                 <ul class="nav-menu">
-                   <li class="nav-item"><a href="fantop.html">ホーム</a></li>
+                    <li class="nav-item"><a href="fantop.html">ホーム</a></li>
                     <li class="nav-item"><a href="javascript:void(0);" class="active">メンバーブログ</a></li>
                     <li class="nav-item"><a href="javascript:void(0);">Media</a></li>
                     <li class="nav-item"><a href="javascript:void(0);">Event</a></li>
@@ -501,75 +500,54 @@
         </div>
     </header>
 
-    <!-- メインコンテンツ -->
     <div class="container">
         
-        <!-- ブログ本文エリア -->
         <main class="main-content">
             <article class="blog-article">
                 
                 <div class="blog-meta">
-                    <span class="blog-date">2022.04.20</span>
+                    <span class="blog-date">2025.11.30</span>
                     <span class="blog-author">投稿者：KAI</span>
                 </div>
 
-                <h1 class="blog-title">初ブログ</h1>
+                <h1 class="blog-title">6thシングル発売記念おはなし会</h1>
 
                 <div class="blog-image-wrapper">
-                  <img src="./media/img/lesson.jpg" alt="lesson.jpg" class="blog-image">
+                    <img src="./media/img/talk.jpg" alt="talk.jpg" class="blog-image">
                 </div>
 
                 <div class="blog-body">
-                    <p>SEARCHLIGHTのファンクラブがスタートしました！記念すべき最初の更新です。</p>
-                    <p>僕のこと見つけてくれてありがとう🌟<br>改めて、僕のことをもっと知ってもらうために簡単な自己紹介をさせてください！</p>
+                    <p>みんな、こんにちは！SEARCHLIGHTのKAIです。</p>
 
-                    <p>名前: KAI（カイ）</p>
+                    <p>今日は僕たちのおはなし会に来てくれて、本当に本当にありがとうございました！<br>
+                    久しぶりにみんなの元気な顔を見られて、直接「大好き」って伝えてもらえて、胸がいっぱいです。</p>
+                    
+                    <p>メンカラのペンライトやグッズを身につけてきてくれた子もたくさんいて、すっごく嬉しかったな。</p>
 
-                    <p>メンバーカラー: ブルー 💙</p>
+                    <p>やっぱり、みんなと1対1でちゃんとお話しできる時間は、僕にとって何よりも特別で、一番の宝物です。</p>
 
-                    <p>出身地: 千葉県 🥜</p>
-
-                    <p>誕生日：2005/12/5</p>
-
-                    <p>趣味: ゲーム、ダンス</p>
-
-                    <p>好きな食べ物: ハンバーグ</p>
-
-                    <p>夢：タワマンに住むこと！</p>
-
-                    <p>昔住んでた所の近くにものすごく高くて立派な、お城みたいなマンションがあって「いつか絶対に、あの一番高い部屋に住むんだ」って決めたんだよね。</p>
-                    <p>SEARCHLIGHTとしてもっともっと大きくなって、いつか絶対にその夢を叶えたいと思います！</p>
-
-                    <p>その最上階の部屋に招待できるように、これからも全力で頑張るね。</p>
-
-                    <p>これからこのブログで、僕の日常や好きなものをたくさん発信していくので、ぜひ毎回チェックしてもらえると嬉しいです！</p>
-
-                    <p>ダンスと歌のレッスン頑張るよ♡次の更新もお楽しみに！</p>
+                    <p>写真はメンバーと開場前に撮った写真(笑)</p>
+                    <p>またすぐ会おうね。約束だよ！</p>
                 </div>
 
             </article>
         </main>
 
-        <!-- サイドバー（検索・注意事項 ＋ メンバー一覧） -->
         <aside class="sidebar">
 
-            <!-- MEMBERの上の枠（検索＆注意事項） -->
             <div class="sidebar-widget">
                 <h3 class="widget-title">SEARCH & INFO</h3>
 
-                <!-- 記事検索窓 -->
                 <div class="search-form">
                     <input type="text" id="searchInput" class="search-input" placeholder="キーワードを入力..." required>
                     <button type="button" id="searchBtn" class="search-button">検索</button>
                 </div>
 
-                <!-- 注意事項ボタン -->
                 <button type="button" class="notice-button" onclick="showNotice()">
                     <span>⚠️</span> ブログ検索の注意事項
                 </button>
             </div>
 
-            <!-- MEMBERウィジェット -->
             <div class="sidebar-widget">
                 <h3 class="widget-title">MEMBER</h3>
                 <ul class="member-list">
@@ -585,7 +563,6 @@
 
     </div>
 
-    <!-- 自作ポップアップ（注意事項モーダル）の構造 -->
     <div class="modal-overlay" id="noticeModal">
         <div class="modal-content">
             <h3 class="modal-title">⚠️ ブログ検索に関する注意事項</h3>
@@ -599,7 +576,6 @@
         </div>
     </div>
 
-    <!-- フッターエリア -->
     <footer>
         <div class="footer-links">
             <a href="javascript:void(0);">ファンクラブについて</a>
@@ -613,7 +589,6 @@
         <p class="yacho-powered-by" style="margin-top:8px;font-size:11px;opacity:.55;">Powered by <a href="https://sim3.net/yacho/" target="_blank" rel="noopener">YACHO(SIM3)</a></p>
     </footer>
 
-    <!-- JavaScript（機能処理） -->
     <script>
         // 注意事項ボタン（モーダルを開く）
         function showNotice() {
@@ -626,7 +601,6 @@
         }
     </script>
 
-    <!-- YACHO コアスクリプト -->
     <script>window.YACHO_BASE = "./"; window.YACHO_PROVIDER_MODE = "json";</script>
     <script type="module" src="./assets/js/core/index.js"></script>
 </body>
