@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第3問</title>
+    
+    <!-- ▼▼▼ ここからデザイン(CSS) ▼▼▼ -->
+    <style>
+        /* ページ全体の基本設定（黒背景・緑文字・等幅フォント） */
+        body {
+            background-color: #050505; /* 真っ黒より少しだけ浮かせた黒 */
+            color: #ffffff; /* マトリックス風の緑 */
+            font-family: 'Courier New', Consolas, monospace; /* プログラムっぽいフォント */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* 中央のコンテンツを囲む枠 */
+        .container {
+            width: 90%;
+            max-width: 600px;
+            padding: 40px;
+            border: 1px solid #1e90ff;
+            box-shadow: 0 0 15px rgba(30, 144, 255, 0.3); /* ぼんやり光る効果 */
+            background-color: #000000;
+        }
+
+        /* タイトルのデザイン */
+        .title {
+            font-size: 1.5rem;
+            color: #ffffff;
+            border-bottom: 1px dashed #1e90ff;
+            padding-bottom: 10px;
+            margin-top: 0;
+            text-shadow: 0 0 8px #1e90ff;
+        }
+
+        /* コメント（状況説明）のデザイン */
+        .comment {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #cccccc; /* コメント部分は少し白っぽくしてメリハリをつける */
+        }
+
+        /* 問題文を囲む箱 */
+        .question-box {
+            background-color: rgba(30, 144, 255, 0.1);
+            padding: 20px;
+            margin-bottom: 30px;
+            border-left: 5px solid #1e90ff;
+        }
+
+        .question {
+            font-size: 1.2rem;
+            margin: 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        /* 入力欄とボタンのエリア */
+        .answer-area {
+            display: flex;
+            gap: 10px;
+        }
+
+        /* 入力欄（テキストボックス）のデザイン */
+        input[type="text"] {
+            flex-grow: 1;
+            background-color: #000;
+            color: #1e90ff;
+            border: 1px solid #1e90ff;
+            padding: 10px;
+            font-family: inherit;
+            font-size: 1rem;
+            outline: none;
+        }
+        input[type="text"]:focus {
+            box-shadow: 0 0 10px rgba(30, 144, 255, 0.6);
+        }
+
+        /* 送信ボタンのデザイン */
+        button {
+            background-color: #1e90ff;
+            color: #ffffff;
+            border: 1px solid #0000cd;
+            padding: 10px 20px;
+            font-family: inherit;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background-color: #000;
+            color: #1e90ff;
+            box-shadow: 0 0 10px #1e90ff;
+        }
+
+        /* エラーメッセージ（不正解の時の文字） */
+        .error {
+            margin-top: 15px;
+            min-height: 1.5em;
+            font-weight: bold;
+        }
+    </style>
+    <!-- ▲▲▲ ここまでデザイン(CSS) ▲▲▲ -->
+
+<meta name="generator" content="simple-item-master-three">
+</head>
+<body>
+
+    <!-- ▼▼▼ ここから画面の表示内容(HTML) ▼▼▼ -->
+    <div class="container">
+        
+        <!-- ▼ タイトル ▼ -->
+        <h1 class="title">第3問</h1>
+
+        <!-- ▼ コメント（状況説明やフレーバーテキスト） ▼ -->
+        <div class="comment">
+          <p>	第2問も正解。さすがだね、簡単すぎたかな？	</p>
+		
+<p>	ファンの子達からは「シアンの話ばっかりで妬ける」って言われることもあるけど,
+  <br>僕の大切な家族のこと、ちゃんとわかってくれてて嬉しいよ。	</p>
+		
+<p>	じゃあ、次はもう少しだけ難しくするね。 	</p>
+		
+<p>	最近雑誌で答えたばかりだし、君なら絶対にわかるよね？？	</p>
+
+ 
+
+        </div>
+
+        <!-- ▼ 問題文 ▼ -->
+        <div class="question-box">
+            <p class="question">
+                第3問 僕の好きな本のタイトルは？
+            </p>
+        </div>
+
+        <!-- ▼ 解答入力エリア ▼ -->
+        <div class="answer-area">
+            <input type="text" id="answerInput" placeholder="Enter password...">
+            <button onclick="checkAnswer()">送信</button>
+        </div>
+        <p id="errorMessage" class="error"></p>
+
+    </div>
+    <!-- ▲▲▲ ここまで画面の表示内容(HTML) ▲▲▲ -->
+
+
+    <!-- ▼▼▼ ここから正誤判定の動き(JavaScript) ▼▼▼ -->
+    <script>
+        function checkAnswer() {
+            // 【変更】ここに正解のキーワードを入力
+            const correctAnswer = "約束の箱庭で、僕らは"; 
+            
+            // 【変更】正解した時に移動する次のページのURL（ファイル名）を入力
+            const nextPage = "question4.html"; 
+
+            const input = document.getElementById("answerInput").value;
+            const errorMsg = document.getElementById("errorMessage");
+
+            if (input === correctAnswer) {
+                // 正解のときの処理
+                errorMsg.style.color = "#1e90ff";
+                errorMsg.innerText = "Check Answer... 転送中 ...";
+                
+                // 1.5秒後に次のページへ移動
+                setTimeout(() => { window.location.href = nextPage; }, 1500);
+            } else {
+                // 不正解のときの処理
+                errorMsg.style.color = "#ff0000"; // 赤文字
+                errorMsg.innerText = "Access Denied. 不正解";
+            }
+        }
+    </script>
+    <!-- ▲▲▲ ここまで正誤判定の動き(JavaScript) ▲▲▲ -->
+
+
+<footer style="text-align:center;padding:12px 0 8px;"><p class="yacho-powered-by" style="margin-top:8px;font-size:11px;opacity:.55;">Powered by <a href="https://sim3.net/yacho/" target="_blank" rel="noopener">YACHO(SIM3)</a></p></footer>
+</body>
+</html>

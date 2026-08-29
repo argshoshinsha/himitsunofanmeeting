@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>独占インタビュー</title>
+    <style>
+        /* --- 共通ベース設定（トップページと同じ） --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            background-color: #f4f4f4;
+            color: #222; /* 本文が読みやすいように少し濃く */
+            line-height: 1.6;
+        }
+        a { text-decoration: none; color: inherit; }
+        a:hover { opacity: 0.8; }
+        
+        header { background-color: #000; color: #fff; padding: 15px 20px; text-align: center; }
+        header h1 { font-size: 28px; font-weight: 900; letter-spacing: 2px; color: peachpuff; }
+        header p { font-size: 12px; color: #ccc; }
+
+        nav { background-color: #fff; border-bottom: 2px solid #e60000; }
+        nav ul { display: flex; justify-content: center; list-style: none; max-width: 1000px; margin: 0 auto; }
+        nav ul li a { display: block; padding: 12px 20px; font-weight: bold; font-size: 14px; }
+        nav ul li a:hover { background-color: #f9f9f9; color: #e60000; }
+
+        .container { display: flex; flex-wrap: wrap; max-width: 1000px; margin: 20px auto; padding: 0 10px; gap: 20px; }
+        .main-content { flex: 1 1 65%; background: #fff; padding: 30px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .sidebar { flex: 1 1 30%; }
+
+        /* --- 記事ページ特有のスタイル --- */
+        
+        /* 記事ヘッダー（カテゴリ・日付・タイトル） */
+        .article-header { margin-bottom: 25px; }
+        .article-meta { display: flex; align-items: center; margin-bottom: 15px; font-size: 13px; color: #666; }
+        .article-category { background-color: #e60000; color: #fff; padding: 4px 10px; font-weight: bold; margin-right: 15px; }
+        .article-title { font-size: 26px; line-height: 1.5; font-weight: 900; margin-bottom: 15px; }
+        
+        /* アイキャッチ画像 */
+        .article-eyecatch { margin-bottom: 30px; }
+        .article-eyecatch img { width: 100%; height: auto; }
+        .article-caption { font-size: 12px; color: #777; text-align: right; margin-top: 5px; }
+
+        /* 記事本文 */
+        .article-body { font-size: 17px; line-height: 2.0; /* 読みやすいように行間広め */ }
+        .article-body p { margin-bottom: 20px; }
+        .article-body strong { background: linear-gradient(transparent 60%, #ffff66 60%); /* マーカー風の強調 */ }
+        
+        /* 記事内の小見出し */
+        .article-body h2 {
+            font-size: 20px;
+            font-weight: bold;
+            border-left: 5px solid #e60000;
+            background-color: #f9f9f9;
+            padding: 10px 15px;
+            margin: 40px 0 20px 0;
+        }
+
+        /* クレジット */
+        .article-credit { text-align: right; font-size: 14px; font-weight: bold; margin-top: 40px; color: #555; }
+
+        /* --- サイドバー（トップページと同じ） --- */
+        .section-title { font-size: 18px; font-weight: bold; border-left: 5px solid #e60000; padding-left: 10px; margin-bottom: 20px; }
+        .ranking-box { background: #fff; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        .ranking-list { list-style: none; counter-reset: rank; }
+        .ranking-list li { position: relative; padding: 12px 0 12px 30px; border-bottom: 1px solid #eee; font-size: 13px; font-weight: bold; line-height: 1.4; }
+        .ranking-list li:before {
+            counter-increment: rank; content: counter(rank); position: absolute; left: 0; top: 12px;
+            background: #333; color: #fff; width: 20px; height: 20px; text-align: center; line-height: 20px; font-size: 12px;
+        }
+        .ranking-list li:nth-child(1):before { background: #e60000; }
+        .ranking-list li:nth-child(2):before { background: #ff6600; }
+        .ranking-list li:nth-child(3):before { background: #ff9900; }
+
+        footer { background-color: #333; color: #fff; text-align: center; padding: 20px; margin-top: 40px; font-size: 12px; }
+
+        /* スマホ対応 */
+        @media (max-width: 768px) {
+            .container { flex-direction: column; padding: 0; }
+            .main-content { padding: 20px 15px; }
+            .article-title { font-size: 22px; }
+            .article-body { font-size: 16px; }
+            nav ul { flex-wrap: wrap; }
+            nav ul li { width: 25%; text-align: center; }
+            nav ul li a { padding: 10px 5px; font-size: 12px; }
+        }
+    </style>
+<meta name="generator" content="simple-item-master-three">
+</head>
+<body>
+
+    <header>
+        <h1>週刊スクープWEB</h1>
+        <p>社会の「裏側」を暴くニュースサイト</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="javascript:void(0);">スポーツ</a></li>
+            <li><a href="javascript:void(0);">芸能・エンタメ</a></li>
+            <li><a href="javascript:void(0);">政治・社会</a></li>
+            <li><a href="javascript:void(0);">事件・事故</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- 左側：メイン記事エリア -->
+        <main class="main-content">
+            
+            <!-- 記事ヘッダー -->
+            <header class="article-header">
+                <div class="article-meta">
+                    <span class="article-category">芸能・エンタメ</span>
+                    <time>2026.12.20 12:00</time>
+                </div>
+                <h1 class="article-title">【5大ドームツアー成功】"SEARCH LIGHT"絶対的センター"KAI"独占インタビュー</h1>
+            </header>
+
+            <!-- アイキャッチ画像 -->
+            <div class="article-eyecatch">
+                <img src="./media/img/concert.jpg" alt="concert.jpg" class="blog-image">
+                <p class="article-caption">ツアー成功の裏側を語るKAIさん（都内スタジオにて）</p>
+            </div>
+
+            <!-- 記事本文 -->
+            <div class="article-body">
+                <h2>ファンと共に駆け抜けたドームの舞台</h2>
+                <p>飛ぶ鳥を落款す勢いで人気を拡大し続ける男性アイドルグループ「SEARCH LIGHT」。その絶対的センターとしてグループを牽引するKAIが、大盛況のうちに幕を閉じた5大ドームツアーを振り返り、本誌の独占インタビューに応じた。</p>
+
+                <p>「本当に夢のような時間でした。ステージから見える一面のブルーのペンライトの海は、僕にとって何よりも大切な宝物です。支えてくれるファンの皆さんがいてこその僕たちなので、感謝の気持ちしかありません」と、KAIは爽やかな笑顔で語る。</p>
+              
+                <h2>KAIを支える原動力</h2>
+                <p>「実はずっと昔から探していた僕にとっての「宝物」をやっと見つけたんです。それを手に入れた時、今まで心の中にずっとかかっていた深いもやが、スッと晴れていくような感覚がありました。<br>どんな物かって？ごめんなさい、それは……僕だけの秘密です（笑）。<br>でも、本当に大切なものなので、「ああ、これで僕はもう大丈夫だ」って、心から安心できたというか。</p>
+                <p>実は一時期不眠症に悩まされたこともあったんですが、心が満たされたおかげで、今まで「自分には無理かも」「苦手だな」って避けていたことにも、前向きにチャレンジできるようになりました。<br>今の自分に自信を持てるようになったし、ここまで大きく成長できたのは、間違いなくその「宝物」とファンの皆様のおかげです。だから、これからもずっと大切に、誰にも渡さずに守っていきたいですね。</p>
+              
+                <h2>グループの躍進と、これからの決意</h2>
+                <p>結成からこれまでの歩みは決して平坦ではなかったという。しかし、持ち前のストイックなダンスと歌のレッスンを重ね、ファンとの絆を一つずつ丁寧に紡いできた結果が、今回の大成功に繋がった。</p>
+
+                <p><strong>「僕の歌やダンスを見て、明日を頑張るエネルギーにしてもらえたらそれが一番嬉しいです。これからも皆さんと一緒に、もっと高い景色を見ていきたい。ずっと僕についてきてください」</strong></p>
+
+                <p>インタビュー中、終始ファンへの深い愛情と真摯な姿勢を見せたKAI。グループの未来、そしてファンとの強い絆を誓う彼の瞳には、さらなる高みを見据える強い光が宿っていた。</p>
+
+                <p>トップアイドルとしてのプレッシャーを跳ね返し、常に進化し続けるKAI。彼が切り開く未来のステージから、今後も目が離せない。</p>
+            </div>
+
+            <!-- クレジット -->
+            <p class="article-credit">（週刊スクープWEB 芸能取材班）</p>
+        </main>
+
+        <!-- 右側：サイドバーエリア -->
+        <aside class="sidebar">
+            <div class="ranking-box">
+                <h2 class="section-title">アクセスランキング</h2>
+                <ul class="ranking-list">
+                    <li><a href="javascript:void(0);">【5大ドームツアー成功】"SEARCH LIGHT"絶対的センター"KAI"独占インタビュー</a></li>
+                    <li><a href="newssite01.html">【失踪から1年】西庵区女子大生 防犯カメラの映像を最後に足取り途絶える</a></li>
+                    <li><a href="javascript:void(0);">大物政治家C氏に浮上した「裏金疑惑」 秘書が漏らした証拠音声</a></li>
+                    <li><a href="javascript:void(0);">有名スポーツ選手F、妻の妊娠中にグラドルと深夜密会デート</a></li>
+                    <li><a href="javascript:void(0);">「あいつだけは許さない」大御所俳優Gが共演NGを出した若手</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <p>&copy; 初心者 / 秘密のファンミーティング</p>
+        <p>このニュースサイトの内容はフィクションです。実際の人物、事件、団体等とは一切関係ありません。</p>
+    
+      <p class="yacho-powered-by" style="margin-top:8px;font-size:11px;opacity:.55;">Powered by <a href="https://sim3.net/yacho/" target="_blank" rel="noopener">YACHO(SIM3)</a></p>
+    </footer>
+
+</body>
+</html>

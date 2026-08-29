@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【失踪から1年】西庵区女子大生 防犯カメラの映像を最後に足取り途絶える 警察が情報提供を呼びかけ</title>
+    <style>
+        /* --- 共通ベース設定（トップページと同じ） --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            background-color: #f4f4f4;
+            color: #222; /* 本文が読みやすいように少し濃く */
+            line-height: 1.6;
+        }
+        a { text-decoration: none; color: inherit; }
+        a:hover { opacity: 0.8; }
+        
+        header { background-color: #000; color: #fff; padding: 15px 20px; text-align: center; }
+        header h1 { font-size: 28px; font-weight: 900; letter-spacing: 2px; color: peachpuff; }
+        header p { font-size: 12px; color: #ccc; }
+
+        nav { background-color: #fff; border-bottom: 2px solid #e60000; }
+        nav ul { display: flex; justify-content: center; list-style: none; max-width: 1000px; margin: 0 auto; }
+        nav ul li a { display: block; padding: 12px 20px; font-weight: bold; font-size: 14px; }
+        nav ul li a:hover { background-color: #f9f9f9; color: #e60000; }
+
+        .container { display: flex; flex-wrap: wrap; max-width: 1000px; margin: 20px auto; padding: 0 10px; gap: 20px; }
+        .main-content { flex: 1 1 65%; background: #fff; padding: 30px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .sidebar { flex: 1 1 30%; }
+
+        /* --- 記事ページ特有のスタイル --- */
+        
+        /* 記事ヘッダー（カテゴリ・日付・タイトル） */
+        .article-header { margin-bottom: 25px; }
+        .article-meta { display: flex; align-items: center; margin-bottom: 15px; font-size: 13px; color: #666; }
+        .article-category { background-color: #e60000; color: #fff; padding: 4px 10px; font-weight: bold; margin-right: 15px; }
+        .article-title { font-size: 26px; line-height: 1.5; font-weight: 900; margin-bottom: 15px; }
+        
+        /* アイキャッチ画像 */
+        .article-eyecatch { margin-bottom: 30px; }
+        .article-eyecatch img { width: 100%; height: auto; }
+        .article-caption { font-size: 12px; color: #777; text-align: right; margin-top: 5px; }
+
+        /* 記事本文 */
+        .article-body { font-size: 17px; line-height: 2.0; /* 読みやすいように行間広め */ }
+        .article-body p { margin-bottom: 20px; }
+        .article-body strong { background: linear-gradient(transparent 60%, #ffff66 60%); /* マーカー風の強調 */ }
+        
+        /* 記事内の小見出し */
+        .article-body h2 {
+            font-size: 20px;
+            font-weight: bold;
+            border-left: 5px solid #e60000;
+            background-color: #f9f9f9;
+            padding: 10px 15px;
+            margin: 40px 0 20px 0;
+        }
+
+        /* ページネーション（週刊誌特有のページ分割） */
+        .pagination { display: flex; justify-content: center; gap: 10px; margin: 40px 0 20px 0; }
+        .pagination a, .pagination span {
+            display: inline-block;
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            font-weight: bold;
+        }
+        .pagination span.current { background-color: #e60000; color: #fff; border-color: #e60000; }
+        .pagination a.next-page { background-color: #333; color: #fff; border-color: #333; width: 100%; text-align: center; margin-top: 10px; }
+
+        /* クレジット */
+        .article-credit { text-align: right; font-size: 14px; font-weight: bold; margin-top: 40px; color: #555; }
+
+        /* SNSシェアボタン */
+        .share-buttons { display: flex; gap: 10px; margin-top: 30px; padding-top: 20px; border-top: 1px dashed #ccc; }
+        .share-btn { flex: 1; text-align: center; padding: 10px; font-weight: bold; color: #fff; border-radius: 3px; font-size: 14px; }
+        .share-x { background-color: #000; }
+        .share-fb { background-color: #1877F2; }
+        .share-line { background-color: #06C755; }
+
+        /* --- サイドバー（トップページと同じ） --- */
+        .section-title { font-size: 18px; font-weight: bold; border-left: 5px solid #e60000; padding-left: 10px; margin-bottom: 20px; }
+        .ranking-box { background: #fff; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        .ranking-list { list-style: none; counter-reset: rank; }
+        .ranking-list li { position: relative; padding: 12px 0 12px 30px; border-bottom: 1px solid #eee; font-size: 13px; font-weight: bold; line-height: 1.4; }
+        .ranking-list li:before {
+            counter-increment: rank; content: counter(rank); position: absolute; left: 0; top: 12px;
+            background: #333; color: #fff; width: 20px; height: 20px; text-align: center; line-height: 20px; font-size: 12px;
+        }
+        .ranking-list li:nth-child(1):before { background: #e60000; }
+        .ranking-list li:nth-child(2):before { background: #ff6600; }
+        .ranking-list li:nth-child(3):before { background: #ff9900; }
+
+        footer { background-color: #333; color: #fff; text-align: center; padding: 20px; margin-top: 40px; font-size: 12px; }
+
+        /* スマホ対応 */
+        @media (max-width: 768px) {
+            .container { flex-direction: column; padding: 0; }
+            .main-content { padding: 20px 15px; }
+            .article-title { font-size: 22px; }
+            .article-body { font-size: 16px; }
+            nav ul { flex-wrap: wrap; }
+            nav ul li { width: 25%; text-align: center; }
+            nav ul li a { padding: 10px 5px; font-size: 12px; }
+            .pagination { flex-wrap: wrap; }
+        }
+    </style>
+<meta name="generator" content="simple-item-master-three">
+</head>
+<body>
+
+    <header>
+        <h1>週刊スクープWEB</h1>
+        <p>社会の「裏側」を暴くニュースサイト</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="javascript:void(0);">スポーツ</a></li>
+            <li><a href="javascript:void(0);">芸能・エンタメ</a></li>
+            <li><a href="javascript:void(0);">政治・社会</a></li>
+            <li><a href="javascript:void(0);">事件・事故</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- 左側：メイン記事エリア -->
+        <main class="main-content">
+            
+            <!-- 記事ヘッダー -->
+            <header class="article-header">
+                <div class="article-meta">
+                    <span class="article-category">事件・事故</span>
+                    <time>2026.12.10 18:00</time>
+                </div>
+                <h1 class="article-title">【失踪から1年】都立大学に通う学生 防犯カメラの映像を最後に足取り途絶える 警察が情報提供を呼びかけ</h1>
+            </header>
+
+            <!-- アイキャッチ画像 -->
+            <div class="article-eyecatch">
+                <img src="./media/img/bouhancamera.png" alt="bouhancamera">
+                <p class="article-caption">Aさんが最後に確認された監視カメラ画像(独占入手)</p>
+            </div>
+
+            <!-- 記事本文 -->
+            <div class="article-body">
+                <h2>失踪から1年</h2>
+                <p>昨年12月、東京都西区内から忽然と姿を消したAさん。<br>失踪からちょうど1年が経過した現在も有力な手がかりは見つかっておらず、警察の捜査は難航している。</p>
+
+                <p>Aさんは失踪当日、自室に財布やスマートフォンを残したまま外出。室内に荒らされたような形跡はなく、自発的な外出だったと見られている。知人の証言によれば、Aさんはあるアイドルグループを熱心に応援しており、普段からイベント等に足を運ぶなど、「推し活」を楽しむごく普通の平穏な生活を送っていたという。</p>
+                
+                <h2>足取り依然としてつかめず</h2>
+                <p>警察の調べによると、Aさんの姿が最後に確認されたのは、西庵公園付近のコンビニに設置された防犯カメラの映像だ。<br>現場周辺には大型病院や高層マンション群が広がっているが、この映像を最後にAさんの足取りは完全に途絶えている。</p>
+
+                <p><strong>「事件に巻き込まれたのか、それとも何らかの理由で自ら姿を消したのか。現在も公園周辺での聞き込みや防犯カメラの解析を継続しているが、決定的な手がかりには至っていない」</strong>と捜査関係者は語る。</p>
+
+                <p>病院や学校などの便利な施設が揃い、高層マンションが立ち並ぶ平穏な地域で、最後に確認された彼女に一体何があったのか――。</p>
+
+                <p>Aさんの家族は取材に対し、「ただ無事に帰ってきてほしい、それだけです。毎日、帰りを待っています」と悲痛な胸の内を明かした。警察は引き続き、広く情報提供を呼びかけている。</p>
+            </div>
+
+            <!-- クレジット -->
+            <p class="article-credit">（週刊スクープWEB 取材班）</p>
+        </main>
+
+        <!-- 右側：サイドバーエリア（タグを正しく追加） -->
+        <aside class="sidebar">
+            <div class="ranking-box">
+                <h2 class="section-title">アクセスランキング</h2>
+                <ul class="ranking-list">
+                    <li><a href="newssite02.html">【5大ドームツアー成功】"SEARCH LIGHT"絶対的センター"KAI"独占インタビュー</a></li>
+                    <li><a href="javascript:void(0);">女子アナEが電撃退社へ。背景にあった局上層部との「ドロドロ確執」</a></li>
+                    <li><a href="javascript:void(0);">大物政治家C氏に浮上した「裏金疑惑」 秘書が漏らした証拠音声</a></li>
+                    <li><a href="javascript:void(0);">有名スポーツ選手F、妻の妊娠中にグラドルと深夜密会デート</a></li>
+                    <li><a href="javascript:void(0);">「あいつだけは許さない」大御所俳優Gが共演NGを出した若手</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <p>&copy; 初心者 / 秘密のファンミーティング</p>
+        <p>このニュースサイトの内容はフィクションです。実際の人物、事件、団体等とは一切関係ありません。</p>
+    
+      <p class="yacho-powered-by" style="margin-top:8px;font-size:11px;opacity:.55;">Powered by <a href="https://sim3.net/yacho/" target="_blank" rel="noopener">YACHO(SIM3)</a></p>
+    </footer>
+
+</body>
+</html>

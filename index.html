@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アイ＠KAI♡ (@ai) - searchtter</title>
+    <style>
+        /* 全体のリセットと基本設定 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f5f8fa;
+            color: #14171a;
+            line-height: 1.5;
+        }
+        a { text-decoration: none; color: inherit; }
+
+        /* ヘッダー（ナビゲーション） */
+        header {
+            background-color: #fff;
+            padding: 10px 20px;
+            border-bottom: 1px solid #1E90FF;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+        }
+        .header-inner {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .header-inner span { color: #1E90FF; margin-right: 10px; } 
+
+        /* メインコンテナ */
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            min-height: 100vh;
+            border-left: 1px solid #1E90FF;
+            border-right: 1px solid #1E90FF;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* プロフィールエリア */
+        .profile-header { position: relative; }
+        
+        /* ヘッダー画像（カバー画像） */
+        .cover-image {
+            width: 100%;
+            height: 200px;
+            background-color: #1E90FF; 
+        }
+
+        /* プロフィール情報部分 */
+        .profile-info { padding: 15px 20px; position: relative; }
+
+        /* アイコン画像 */
+        .profile-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid #fff;
+            background-color: #1E90FF; 
+            position: absolute;
+            top: -60px;
+            left: 20px;
+        }
+
+        /* アクションボタン（DM、フォローなど） */
+        .action-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-bottom: 10px;
+            height: 40px;
+        }
+
+        /* DMボタン（別サイトへ飛ぶボタン） */
+        .btn-dm {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #cfd9de;
+            border-radius: 9999px;
+            padding: 0 15px;
+            font-size: 14px;
+            font-weight: bold;
+            background-color: #fff;
+            color: #0f1419;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .btn-dm:hover { background-color: #e7e7e8; }
+        
+        /* ダミーのフォローボタン */
+        .btn-follow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            padding: 0 20px;
+            font-size: 14px;
+            font-weight: bold;
+            background-color: #0f1419;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        /* ユーザー名と自己紹介 */
+        .user-name { font-size: 20px; font-weight: 800; margin-top: 10px; }
+        .user-id { font-size: 15px; color: #536471; margin-bottom: 15px; }
+        .bio { font-size: 15px; margin-bottom: 15px; word-wrap: break-word; }
+        .follow-info { font-size: 14px; color: #536471; display: flex; gap: 15px; }
+        .follow-info span { font-weight: bold; color: #1E90FF; }
+
+        /* タブメニュー */
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #1E90FF;
+            margin-top: 20px;
+        }
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 15px 0;
+            font-weight: bold;
+            color: #536471;
+            cursor: pointer;
+            position: relative;
+        }
+        .tab.active { color: #0f1419; }
+        .tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 4px;
+            background-color: #1E90FF;
+            border-radius: 2px;
+        }
+
+        /* タイムライン（つぶやき）エリア */
+        .timeline { list-style: none; flex: 1; }
+        .post {
+            display: flex;
+            padding: 15px 20px;
+            border-bottom: 1px solid #1E90FF;
+            cursor: pointer;
+        }
+        .post:hover { background-color: #f7f9f9; }
+        
+        /* タイムラインのアイコン */
+        .post-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: #1E90FF; 
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .post-content { flex: 1; min-width: 0; }
+        .post-header { display: flex; align-items: baseline; gap: 5px; margin-bottom: 2px; }
+        .post-name { font-weight: bold; font-size: 15px; }
+        .post-id, .post-time { color: #536471; font-size: 14px; }
+        .post-text { font-size: 15px; margin-bottom: 10px; word-wrap: break-word; white-space: pre-wrap; }
+        
+        /* アクションアイコン（いいね等） */
+        .post-actions {
+            display: flex;
+            justify-content: space-between;
+            max-width: 300px;
+            color: #536471;
+            font-size: 13px;
+        }
+        .action-item { display: flex; align-items: center; gap: 5px; cursor: pointer; }
+
+        /* --- フッターのスタイル --- */
+        footer {
+            background-color: #fff;
+            color: #536471;
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            border-top: 1px solid #1E90FF;
+            margin-top: auto; /* タイムラインの下にしっかり固定させる */
+        }
+        footer p {
+            margin: 2px 0;
+        }
+
+        /* スマホ対応の微調整 */
+        @media (max-width: 600px) {
+            .container { border-left: none; border-right: none; }
+            .cover-image { height: 150px; }
+            .profile-icon { width: 90px; height: 90px; top: -45px; }
+        }
+    </style>
+<meta name="generator" content="simple-item-master-three">
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <span>✧</span> Searchtter
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <!-- プロフィールエリア -->
+        <div class="profile-header">
+            <div class="cover-image"></div>
+            
+            <div class="profile-info">
+                <div class="profile-icon"></div>
+                
+                <div class="action-buttons">
+                    <a href="hahadm.html" target="_blank" class="btn-dm">✉️ メッセージ</a>
+                    <div class="btn-follow">フォロー</div>
+                </div>
+
+                <div class="user-name">アイ＠KAI♡</div>
+                <div class="user-id">@ailovekai</div>
+                
+                <div class="bio">
+                    SEARCHLIGHTのKAI応援アカウント<br>
+                    KAI以外要らない<br>
+                </div>
+                
+                <div class="follow-info">
+                    <div><span>0</span> フォロー中</div>
+                    <div><span>125</span> フォロワー</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- タブ -->
+        <div class="tabs">
+            <div class="tab active">ポスト</div>
+            <div class="tab">返信</div>
+            <div class="tab">メディア</div>
+            <div class="tab">いいね</div>
+        </div>
+
+        <!-- タイムライン（つぶやき） -->
+        <ul class="timeline">
+            
+            <li class="post">
+                <div class="post-icon"></div>
+                <div class="post-content">
+                    <div class="post-header">
+                        <span class="post-name">アイ＠KAI♡</span>
+                        <span class="post-id">@ailovekai</span>
+                        <span class="post-time">· 12月3日</span>
+                    </div>
+                    <div class="post-text">一日たっても連絡がない。おかしい。連絡を怠ったことなんてない。警察も頼りにならない。アイ、ここを見たら帰ってきて。もう誰でもいいから。協力して頂戴。母</div>
+                
+                    <div class="post-actions">
+                        <div class="action-item">💬 16</div>
+                        <div class="action-item">🔁 200</div>
+                        <div class="action-item">❤️ 243</div>
+                    </div>
+                </div>
+            </li>
+
+            <li class="post">
+                <div class="post-icon"></div>
+                <div class="post-content">
+                    <div class="post-header">
+                        <span class="post-name">アイ＠KAI♡</span>
+                        <span class="post-id">@ailovekai</span>
+                        <span class="post-time">· 12月2日</span>
+                    </div>
+                    <div class="post-text">アイがどこにもいない。毎朝と夜の連絡には書かれてなかったKAIって何なの。アイの部屋にはスマートフォンも置いたまま。絶対に何かあったはず警察に行きます。母</div>
+                    <div class="post-actions">
+                        <div class="action-item">💬 0</div>
+                        <div class="action-item">🔁 37</div>
+                        <div class="action-item">❤️ 46</div>
+                    </div>
+                </div>
+            </li>
+
+            <li class="post">
+                <div class="post-icon"></div>
+                <div class="post-content">
+                    <div class="post-header">
+                        <span class="post-name">アイ＠KAI♡</span>
+                        <span class="post-id">@ailovekai</span>
+                        <span class="post-time">· 11月30日</span>
+                    </div>
+                    <div class="post-text">おはなし会に行ってよかった。最高、KAI大好き、私はもうKAIがいないとどうにかなってしまう。愛してる。私は他のファンとは違う、これからKAIの特別になるの。今までKAIについて調べた全てが役に立った。私は特別。</div>
+                    <div class="post-actions">
+                        <div class="action-item">💬 0</div>
+                        <div class="action-item">🔁 0</div>
+                        <div class="action-item">❤️ 15</div>
+                    </div>
+                </div>
+            </li>
+            
+            <li class="post">
+                <div class="post-icon"></div>
+                <div class="post-content">
+                    <div class="post-header">
+                        <span class="post-name">アイ＠KAI♡</span>
+                        <span class="post-id">@ailovekai</span>
+                        <span class="post-time">· 11月30日</span>
+                    </div>
+                    <div class="post-text">バイトで嫌なことがあった、でもKAIに会うためだもん我慢する。今日もKAIのことしか考えられない。夢に出てきてね、大好きだよ。</div>
+                    <div class="post-actions">
+                        <div class="action-item">💬 0</div>
+                        <div class="action-item">🔁 0</div>
+                        <div class="action-item">❤️ 12</div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+        <!-- フッターエリア -->
+        <footer>
+            <p>このサイトはフィクションです</p>
+            <p class="copyright">&copy; 初心者 / 秘密のファンミーティング</p>
+        
+      <p class="yacho-powered-by" style="margin-top:8px;font-size:11px;opacity:.55;">Powered by <a href="https://sim3.net/yacho/" target="_blank" rel="noopener">YACHO(SIM3)</a></p>
+    </footer>
+    </div>
+
+</body>
+</html>

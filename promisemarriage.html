@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大切な君へ</title>
+    
+    <!-- ▼▼▼ ここからデザイン(CSS) ▼▼▼ -->
+    <style>
+        /* ページ全体の基本設定（黒背景・青文字・等幅フォント） */
+        body {
+            background-color: #050505; /* 真っ黒より少しだけ浮かせた黒 */
+            color: #ffffff; 
+            font-family: 'Courier New', Consolas, monospace; /* プログラムっぽいフォント */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* 中央のコンテンツを囲む枠 */
+        .container {
+            width: 90%;
+            max-width: 600px;
+            padding: 40px;
+            border: 1px solid #1e90ff;
+            box-shadow: 0 0 15px rgba(30, 144, 255, 0.3); /* ぼんやり光る効果 */
+            background-color: #000000;
+        }
+
+        /* タイトルのデザイン */
+        .title {
+            font-size: 1.5rem;
+            color: #ffffff;
+            border-bottom: 1px dashed #1e90ff;
+            padding-bottom: 10px;
+            margin-top: 0;
+            text-shadow: 0 0 8px #1e90ff;
+        }
+
+        /* コメント（状況説明）のデザイン */
+        .comment {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #ffffff; /* コメント部分は少し白っぽくしてメリハリをつける */
+        }
+
+        /* ボタンのエリア */
+        .answer-area {
+            display: flex;
+            justify-content: center; /* ボタンを中央に配置 */
+            margin-top: 20px;
+        }
+
+        /* 送信ボタンのデザイン */
+        button {
+            background-color: #1e90ff;
+            color: #ffffff;
+            border: 1px solid #0000cd;
+            padding: 10px 40px;
+            font-family: inherit;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background-color: #000;
+            color: #1e90ff;
+            box-shadow: 0 0 10px #1e90ff;
+        }
+
+        /* 進行メッセージ（転送中の文字） */
+        .status-message {
+            margin-top: 15px;
+            min-height: 1.5em;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+    <!-- ▲▲▲ ここまでデザイン(CSS) ▲▲▲ -->
+
+<meta name="generator" content="simple-item-master-three">
+</head>
+<body>
+
+    <!-- ▼▼▼ ここから画面の表示内容(HTML) ▼▼▼ -->
+    <div class="container">
+        
+        <!-- ▼ タイトル ▼ -->
+        <h1 class="title">最終問題</h1>
+
+        <!-- ▼ コメント（状況説明やフレーバーテキスト） ▼ -->
+        <div class="comment">
+<p>	ここまで来てくれて、本当にありがとう。	
+<br>そしてここまで僕との「約束」を守ってくれててありがとう	</p>
+		
+<p>	ずっと探していたんだ、すごく嬉しいよ。	</p>
+		
+<p>	準備もできたし「秘密のファンミーティング」の会場と、当日の注意事項をお知らせします。	
+<br>	しっかり読んで、約束を守って来てね。	</p>
+		
+<p>	［会場のご案内］	
+<br>	場所： プロメッサ西庵公園3101号室	
+<br>	オートロックだけど、当日は僕が中から鍵を開けておくから、そのまま入ってきて大丈夫だよ。	</p>
+		
+<p>	［当日の大切な注意事項］	
+<br>	いくつか絶対に守ってほしいルールがあります。	
+<br>	もし破ったら……ファンミーティングは中止になっちゃうから気をつけてね。	</p>
+		
+<p>	1. 会場に入る前に、スマートフォンの電源は完全に切ること	
+<br>	これは僕たちのイベントの時はいつもお願いしていることだけど、今回はマナーモードじゃなくて「完全にシャットダウン」だよ。	</p>
+		
+<p>	2. AirTag（エアタグ）等の位置情報追跡機器は絶対に持ち込まないこと	
+<br>	最近、鞄や鍵につけている人が多いみたいだけど、GPSや位置情報が分かる電子機器はすべて事前に家に置いてくるか、処分してから来てね。	
+<br>	これはごく一部の限られたファンのための秘密のファンミーティングだからね。	</p>
+		
+		
+<p>	さぁ僕は準備は万端だよ。	</p>
+		
+
+
+        <!-- ▼ ボタンエリア ▼ -->
+        <div class="answer-area">
+            <button onclick="proceedToNext()">早く会いたいな。待ってるね。</button>
+        </div>
+        
+        <!-- ▼ 転送メッセージ表示用 ▼ -->
+        <p id="statusMessage" class="status-message"></p>
+
+    </div>
+    <!-- ▲▲▲ ここまで画面の表示内容(HTML) ▲▲▲ -->
+
+
+    <!-- ▼▼▼ ここから画面移動の動き(JavaScript) ▼▼▼ -->
+    <script>
+        function proceedToNext() {
+            // 【変更】移動する次のページのURL（ファイル名）を入力
+            const nextPage = "message.html"; 
+
+            const statusMsg = document.getElementById("statusMessage");
+
+            // ボタンを押したときの処理
+            statusMsg.style.color = "#1e90ff";
+            statusMsg.innerText = "転送中 ...";
+            
+            // 1.5秒後に次のページへ移動
+            setTimeout(() => { window.location.href = nextPage; }, 1500);
+        }
+    </script>
+    <!-- ▲▲▲ ここまで画面移動の動き(JavaScript) ▲▲▲ -->
+
+
+<footer style="text-align:center;padding:12px 0 8px;"><p class="yacho-powered-by" style="margin-top:8px;font-size:11px;opacity:.55;">Powered by <a href="https://sim3.net/yacho/" target="_blank" rel="noopener">YACHO(SIM3)</a></p></footer>
+</body>
+</html>

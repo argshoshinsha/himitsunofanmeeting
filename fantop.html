@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OFFICIAL FANCLUB | SEARCHLIGHT</title>
+    <style>
+        /* ==========================================
+           全体設定・カラー（青と白を基調）
+        ========================================== */
+        :root {
+            --primary-blue: #0056b3;       /* メインの青 */
+            --light-blue: #e8f0fe;         /* 薄い青（アクセント・背景用） */
+            --dark-blue: #00254d;          /* 濃い青（テキスト・フッター用） */
+            --accent-blue: #007bff;        /* ホバー時などの鮮やかな青 */
+            --white: #ffffff;
+            --text-color: #333333;
+            --bg-light: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", MeiYo, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ==========================================
+           ヘッダー・ナビゲーション（ボタン）
+        ========================================== */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+            letter-spacing: 2px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+        }
+
+        .nav-item {
+            position: relative; /* ドロップダウンの基準位置 */
+        }
+
+        .nav-item > a {
+            display: block;
+            padding: 10px 20px;
+            font-weight: bold;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+            border-radius: 25px;
+            background-color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        /* ボタンのホバー（マウスをのせたとき）効果 */
+        .nav-item > a:hover,
+        .nav-item > a.active {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            box-shadow: 0 4px 8px rgba(0, 86, 179, 0.3);
+        }
+
+        /* ==========================================
+           ドロップダウンメニュー（メンバーブログ用）
+        ========================================== */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 160px;
+            background-color: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            list-style: none;
+            padding: 8px 0;
+            margin-top: 5px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 200;
+        }
+
+        /* 親要素にホバーした時にメニュー表示 */
+        .nav-item.dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(5px);
+        }
+
+        /* ドロップダウンの中身リンク */
+        .dropdown-menu li a {
+            display: block;
+            padding: 8px 16px;
+            color: var(--dark-blue);
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-align: center;
+            border: none;
+            background: transparent;
+            transition: background 0.2s;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: var(--light-blue);
+            color: var(--primary-blue);
+            box-shadow: none;
+        }
+
+        /* ドロップダウン項目間の区切り線 */
+        .dropdown-menu li:not(:last-child) {
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        /* ==========================================
+           トップ：集合写真セクション（ヒーローエリア）
+        ========================================== */
+        .hero {
+            position: relative;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .hero-img-wrapper {
+            position: relative;
+            width: 100%;
+            height: 450px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            background-color: #ddd;
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px 20px;
+            background: linear-gradient(transparent, rgba(0, 37, 77, 0.8));
+            color: var(--white);
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 2rem;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        /* ==========================================
+           メインコンテンツ（News / Contents）
+        ========================================== */
+        .main-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--dark-blue);
+            border-left: 5px solid var(--primary-blue);
+            padding-left: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* お知らせ一覧 */
+        .news-list {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+
+        .news-item {
+            display: flex;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-date {
+            width: 120px;
+            color: var(--primary-blue);
+            font-weight: bold;
+        }
+
+        .news-category {
+            background-color: var(--light-blue);
+            color: var(--primary-blue);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            margin-right: 15px;
+            height: fit-content;
+        }
+
+        /* ==========================================
+           フッター
+        ========================================== */
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        /* ==========================================
+           スマホ対応（レスポンシブ）
+        ========================================== */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-menu {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            .nav-item > a {
+                padding: 8px 12px;
+                font-size: 0.85rem;
+            }
+
+            .dropdown-menu {
+                position: static;
+                transform: none;
+                width: 100%;
+                box-shadow: none;
+                border: 1px solid var(--light-blue);
+                display: none;
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-item.dropdown:hover .dropdown-menu {
+                display: block;
+                transform: none;
+            }
+
+            .hero-img-wrapper {
+                height: 250px;
+            }
+
+            .news-item {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    </style>
+<meta name="generator" content="simple-item-master-three">
+</head>
+<body>
+
+    <!-- ヘッダーエリア -->
+    <header>
+        <div class="header-container">
+            <!-- グループ名-->
+            <div class="logo">SEARCHLIGHT</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="javascript:void(0);" class="active">ホーム</a></li>
+                    
+                    <!-- メンバーブログ（ドロップダウンメニュー付き） -->
+                    <li class="nav-item dropdown">
+                        <a href="javascript:void(0);">メンバーブログ ▾</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="javascript:void(0);">KOU</a></li>
+                            <li><a href="javascript:void(0);">YUTO</a></li>
+                            <li><a href="javascript:void(0);">REI</a></li>
+                            <!-- KAIだけリンクを有効化 -->
+                            <li><a href="kaiblog20251130.html">KAI</a></li>
+                            <li><a href="javascript:void(0);">SHOTA</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a href="javascript:void(0);">Media</a></li>
+                    <li class="nav-item"><a href="javascript:void(0);">Event</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main>
+        <!-- トップ：集合写真掲載エリア -->
+        <section class="hero">
+            <div class="hero-img-wrapper">
+              <img src="./media/img/group.jpg" alt="group.jpg" class="hero-img"> 
+                <div class="hero-overlay">
+                    <h1 class="hero-title">SEARCHLIGHT</h1>
+                    <p>OFFICIAL FANCLUB</p>
+                    <p>公式ファンクラブへようこそ！最新情報や限定コンテンツをお届けします。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- お知らせセクション -->
+        <div class="main-container">
+            <h2 class="section-title">NEWS</h2>
+            <div class="news-list">
+                
+                <!-- KAIのブログ更新リンク（有効化） -->
+                <div class="news-item">
+                    <span class="news-date">2025.11.30</span>
+                    <span class="news-category">Blog</span>
+                    <a href="kaiblog20251130.html">メンバーブログ（更新：KAI）がアップされました！</a>
+                </div>
+                
+                <!-- その他のリンク（クリックしても移動しない） -->
+                <div class="news-item">
+                    <span class="news-date">2025.11.10</span>
+                    <span class="news-category">Event</span>
+                    <a href="javascript:void(0);">「6thシングル発売記念おはなし会」注意事項について更新しました</a>
+                </div>
+                <div class="news-item">
+                    <span class="news-date">2025.10.31</span>
+                    <span class="news-category">Event</span>
+                    <a href="javascript:void(0);">「LIVE TOUR 2025-2026」ファンクラブ先行チケット受付開始！</a>
+                </div>
+                <div class="news-item">
+                    <span class="news-date">2025.10.25</span>
+                    <span class="news-category">Media</span>
+                    <a href="javascript:void(0);">雑誌「FOCUS」11月号KAI＆YUTOインタビュー掲載のお知らせ</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- フッターエリア -->
+    <footer>
+        <div class="footer-links">
+            <a href="javascript:void(0);">ファンクラブについて</a>
+            <a href="javascript:void(0);">利用規約</a>
+            <a href="javascript:void(0);">プライバシーポリシー</a>
+            <a href="javascript:void(0);">お問い合わせ</a>
+        </div>
+        <p class="copyright">&copy; SEARCHLIGHT OFFICIAL FANCLUB All Rights Reserved.</p>
+    
+      <p class="yacho-powered-by" style="margin-top:8px;font-size:11px;opacity:.55;">Powered by <a href="https://sim3.net/yacho/" target="_blank" rel="noopener">YACHO(SIM3)</a></p>
+    </footer>
+
+</body>
+</html>

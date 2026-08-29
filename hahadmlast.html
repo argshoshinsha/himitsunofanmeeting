@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アイの母からのメッセージ</title>
+    <style>
+        /* 全体のリセットと基本設定 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f5f8fa;
+            color: #14171a;
+            line-height: 1.5;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* メインコンテナ */
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background-color: #fff;
+            min-height: 100vh; /* height: 100vh から変更してスクロールに対応 */
+            display: flex;
+            flex-direction: column;
+            border-left: 1px solid #e6ecf0;
+            border-right: 1px solid #e6ecf0;
+        }
+
+        /* --- ヘッダー（固定） --- */
+        header {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid #e6ecf0;
+            background-color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .back-button {
+            font-size: 20px;
+            color: #14171a;
+            text-decoration: none;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        .header-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: #1E90FF; /* 青色 */
+            margin-right: 10px;
+        }
+        .header-name {
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        /* --- チャットエリア（スクロール） --- */
+        .chat-area {
+            flex: 1;
+            padding: 20px 15px;
+            overflow-y: auto;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .date-divider {
+            text-align: center;
+            font-size: 12px;
+            color: #536471;
+            margin: 10px 0;
+        }
+
+        /* 吹き出しの共通スタイル */
+        .message-wrapper {
+            display: flex;
+            align-items: flex-end;
+            max-width: 85%;
+        }
+        .bubble {
+            padding: 12px 16px;
+            font-size: 15px;
+            border-radius: 20px;
+            word-wrap: break-word;
+            white-space: pre-wrap; /* 改行を反映 */
+        }
+        .time {
+            font-size: 11px;
+            color: #536471;
+            margin: 0 8px;
+            margin-bottom: 5px;
+            white-space: nowrap;
+        }
+
+        /* 相手からのメッセージ（左） */
+        .message-left { align-self: flex-start; }
+        .message-left .partner-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: #1E90FF; /* 青色 */
+            margin-right: 8px;
+            flex-shrink: 0;
+        }
+        .message-left .bubble {
+            background-color: #eff3f4;
+            color: #0f1419;
+            border-bottom-left-radius: 4px;
+        }
+
+        /* 自分からのメッセージ（右） */
+        .message-right { align-self: flex-end; flex-direction: row-reverse; }
+        .message-right .bubble {
+            background-color: #1da1f2;
+            color: #fff;
+            border-bottom-right-radius: 4px;
+        }
+
+        /* --- 入力エリア（固定） --- */
+        .input-area {
+            padding: 10px 15px;
+            border-top: 1px solid #e6ecf0;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .input-box {
+            flex: 1;
+            background-color: #eff3f4;
+            border: none;
+            border-radius: 20px;
+            padding: 12px 20px;
+            font-size: 15px;
+            outline: none;
+        }
+        
+        /* ▼ 触れない（無効化された）状態の見た目 ▼ */
+        .input-box:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        .send-button {
+            background: none;
+            border: none;
+            color: #1da1f2;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .send-button:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        /* --- フッターのスタイル --- */
+        footer {
+            background-color: #fff;
+            color: #536471;
+            text-align: center;
+            padding: 15px;
+            font-size: 11px;
+            border-top: 1px solid #e6ecf0;
+        }
+        footer p {
+            margin: 2px 0;
+        }
+    </style>
+<meta name="generator" content="simple-item-master-three">
+</head>
+<body>
+
+    <div class="container">
+        <!-- ヘッダー -->
+        <header>
+            <a href="#" class="back-button">←</a>
+            <div class="header-icon"></div>
+            <div class="header-name">アイ@KAI♡</div>
+        </header>
+
+        <!-- チャットエリア（最初から全メッセージを表示） -->
+        <div class="chat-area" id="chat-area">
+         
+
+            <!-- 1通目：自分 -->
+            <div class="message-wrapper message-right">
+                <div class="bubble">娘さんの捜索に協力したいです</div>
+            </div>
+
+            <!-- 2通目：母 -->
+            <div class="message-wrapper message-left">
+                <div class="partner-icon"></div>
+                <div class="bubble">メッセージ、読みました。……本当に、あの子を探す手伝いなんてしてくださるんですか？私は最初から、あの子が一人暮らしするなんて大反対でした。あんなに危険だから止めたのに、私の言うことなんて一切聞かなかった。毎朝・毎晩私に連絡を入れるのは「絶対の義務」にしていたんです。私がどれだけ厳しく、細かく管理してあの子の安全を守ってきたか……。それなのに、昨夜の夜の連絡がパタリと途絶えました。嫌な予感がして合鍵で部屋に入ったら、もう本人はいなかったんです。部屋を見て、血の気が引きました。あの子の部屋が、見覚えのないアイドルのグッズで埋め尽くされていたんです。手掛かりといえば「秘密のファンミーティング」とかいう気味の悪いメモ……。一体あの子はどこにいるのでしょうか。私はこういうネットの面倒くさい仕組みとか、スマートフォンで何をやっているのかさっぱり分かりません。警察にも相談しましたけど、「成人しているから」の一点張りで、本当に使えない人たちです。
+あなた、インターネットが得意なんでしょう？あの子が今どこにいるのか、探して頂戴。
+どこなのか私にわかりやすく簡潔に教えなさい。あなたが送るのは場所の名前だけよ。部屋番号もあるならそれも一緒に送って頂戴。</div>
+            </div>
+                
+            <!-- 4通目：母 -->
+            <div class="message-wrapper message-left">
+                <div class="partner-icon"></div>
+                <div class="bubble">会員番号016936、パスワードailovekai</div>
+            </div>
+              
+            <!-- 5通目：母 -->
+            <div class="message-wrapper message-left">
+                <div class="partner-icon"></div>
+                <div class="bubble">SEARCHLIGHT公式ファンクラブサイト</div>
+            </div>
+              
+            <!-- 6通目：探索者 -->
+            <div class="message-wrapper message-right">
+                <div class="bubble">プロメッサ西庵公園3101号室</div>
+            </div>
+                    
+            <!-- 7通目：母 -->
+            <div class="message-wrapper message-left">
+                <div class="partner-icon"></div>
+                <div class="bubble">そこなのね！すぐそこへ向かいます。</div>
+            </div>         
+
+            <!-- 8通目：母 -->
+            <div class="message-wrapper message-left">
+                <div class="partner-icon"></div>
+                <div class="bubble">あの子は私が守らないと</div>
+            </div>
+   <div class="date-divider">今日</div>
+            <!-- 9通目：母 -->
+            <div class="message-wrapper message-left">
+                <div class="partner-icon"></div>
+                <div class="bubble">ご連絡、本当にありがとうございました。
+おかげさまで、先ほど無事に警察に娘が保護されました。怪我などもなく、今は署で落ち着いているそうです。
+
+まずは、あなたに心から謝罪させてください。
+最初にご連絡した時、動揺していたとはいえ、手伝ってくださるあなたに対してあんな偉そうで不遜な態度をとってしまって……本当にごめんなさい。見ず知らずのあなたに八つ当たりするような言い方をしてしまったこと、深く反省しております。
+
+娘が無事に見つかって少し冷静になった今、あなたにはきちんとお話ししておかなければと思いました。
+
+あの子は昔から、何か一つのことにのめり込むと周りが全く見えなくなってしまう危うい性格なんです。実は学生時代にも、好きになった同級生に対してストーカーまがいのような問題を起こしたことがありました。
+
+私が娘の一人暮らしに猛反対したのも、毎日朝と夜に連絡を義務付けていていたのも、あの子がまた何か暴走していないか探るためだったんです。「過干渉だ」「毒親だ」と周りから後ろ指を指されているのは分かっています。でも、私にとってはたった一人の大切な娘なんです。あの子を止められるのは、守れるのは私しかいないと思って必死でした。
+
+でも、今回の事件は完全に私の責任です。あんなに管理していたつもりだったのに、あの子の部屋が異常な状態になるまで、心の異変に全く気付けなかった……。本当に情けない母親です。
+
+警察の手続きが終わって落ち着いたら、あの子を心の専門の病院へ連いくつもりです。これからは私一人で抱え込まず、先生とも相談しながら、あの子の心と向き合っていこうと思います。
+
+あなたが素早く居場所を見つけてくださらなければ、今頃どうなっていたか分かりません。
+この度は、私たち親子のために尽力していただき、本当に、本当にありがとうございました。</div>
+            </div>
+        </div>
+
+        <!-- 入力エリア（disabled 属性で触れないように設定） -->
+        <div class="input-area">
+            <input type="text" class="input-box" placeholder="END" disabled>
+            <button class="send-button" disabled>➤</button>
+        </div>
+
+        <!-- フッターエリア -->
+        <footer>
+            <p>このサイトはフィクションです</p>
+            <p class="copyright">&copy; 初心者 / 秘密のファンミーティング</p>
+        
+      <p class="yacho-powered-by" style="margin-top:8px;font-size:11px;opacity:.55;">Powered by <a href="https://sim3.net/yacho/" target="_blank" rel="noopener">YACHO(SIM3)</a></p>
+    </footer>
+    </div>
+
+    <!-- ページを開いたときに自動で最新のメッセージ（一番下）までスクロールさせる処理 -->
+    <script>
+        window.onload = function() {
+            const chatArea = document.getElementById('chat-area');
+            chatArea.scrollTop = chatArea.scrollHeight;
+        };
+    </script>
+</body>
+</html>

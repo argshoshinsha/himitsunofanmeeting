@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEMBER BLOG | 男性アイドルグループ名 OFFICIAL FANCLUB</title>
+    <style>
+        /* ==========================================
+           全体設定・カラー（青と白を基調）
+        ========================================== */
+        :root {
+            --primary-blue: #0056b3;       /* メインの青 */
+            --light-blue: #e8f0fe;         /* 薄い青 */
+            --dark-blue: #00254d;          /* 濃い青 */
+            --accent-blue: #007bff;        /* 鮮やかな青 */
+            --white: #ffffff;
+            --text-color: #333333;
+            --bg-light: #f8f9fa;
+            --border-color: #cccccc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", MeiYo, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ==========================================
+           ヘッダー・ナビゲーション
+        ========================================== */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+            letter-spacing: 2px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+        }
+
+        .nav-item a {
+            display: block;
+            padding: 10px 20px;
+            font-weight: bold;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+            border-radius: 25px;
+            background-color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .nav-item a:hover,
+        .nav-item a.active {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            box-shadow: 0 4px 8px rgba(0, 86, 179, 0.3);
+        }
+
+        /* ==========================================
+           レイアウト（メイン ＋ サイドバー）
+        ========================================== */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 30px;
+        }
+
+        .main-content {
+            flex: 1;
+        }
+
+        /* ==========================================
+           ブログ記事エリア
+        ========================================== */
+        .blog-article {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 35px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .blog-date {
+            color: #666;
+            font-weight: 500;
+        }
+
+        .blog-author {
+            background-color: var(--light-blue);
+            color: var(--primary-blue);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .blog-title {
+            font-size: 1.8rem;
+            color: var(--dark-blue);
+            margin-bottom: 25px;
+            line-height: 1.4;
+            border-bottom: 2px solid var(--light-blue);
+            padding-bottom: 15px;
+        }
+
+        .blog-image-wrapper {
+            width: 100%;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .blog-body {
+            font-size: 1.05rem;
+            color: #444;
+            letter-spacing: 0.5px;
+        }
+
+        .blog-body p {
+            margin-bottom: 1.5em;
+        }
+
+ 
+
+        /* ==========================================
+           サイドバーエリア
+        ========================================== */
+        .sidebar {
+            width: 280px;
+        }
+
+        .sidebar-widget {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+        }
+
+        .widget-title {
+            font-size: 1.1rem;
+            color: var(--dark-blue);
+            border-bottom: 2px solid var(--primary-blue);
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+
+        /* 検索窓スタイル */
+        .search-form {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-input:focus {
+            border-color: var(--primary-blue);
+        }
+
+        .search-button {
+            padding: 8px 15px;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: background-color 0.2s;
+        }
+
+        .search-button:hover {
+            background-color: var(--accent-blue);
+        }
+
+        /* 注意事項ボタン */
+        .notice-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            width: 100%;
+            padding: 10px;
+            background-color: var(--light-blue);
+            color: var(--primary-blue);
+            border: 1px solid var(--primary-blue);
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-align: center;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .notice-button:hover {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        /* メンバーリスト */
+        .member-list {
+            list-style: none;
+        }
+
+        .member-list li a {
+            display: block;
+            padding: 8px 10px;
+            border-radius: 6px;
+            color: #555;
+            transition: background 0.2s;
+        }
+
+        .member-list li a:hover {
+            background-color: var(--light-blue);
+            color: var(--primary-blue);
+        }
+
+        /* ==========================================
+           フッター
+        ========================================== */
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        /* スマホ対応 */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-menu {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            .nav-item a {
+                padding: 8px 12px;
+                font-size: 0.85rem;
+            }
+
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+            }
+
+            .blog-article {
+                padding: 20px;
+            }
+
+            .blog-title {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+<meta name="generator" content="simple-item-master-three">
+</head>
+<body>
+
+    <!-- ヘッダーエリア -->
+    <header>
+        <div class="header-container">
+            <div class="logo"></div>
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="fantop.html">ホーム</a></li>
+                    <li class="nav-item"><a href="javascript:void(0);" class="active">メンバーブログ</a></li>
+                    <li class="nav-item"><a href="javascript:void(0);">Media</a></li>
+                    <li class="nav-item"><a href="javascript:void(0);">Event</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <div class="container">
+        
+        <!-- ブログ本文エリア -->
+        <main class="main-content">
+            <article class="blog-article">
+                
+                <div class="blog-meta">
+                    <span class="blog-date">2023.07.08</span>
+                    <span class="blog-author">投稿者：KAI</span>
+                </div>
+
+                <h1 class="blog-title">大切な家族</h1>
+
+                <div class="blog-image-wrapper">
+                   <img src="./media/img/cian.jpg" alt="cian.jpg" class="blog-image">
+                </div>
+
+                <div class="blog-body">
+<p>みんな、こんにちは！KAIです。</p>
+<p>今日は僕の癒やし！愛猫の「シアン」を改めてみんなに紹介しちゃいます😸</p>
+
+<p>シアンは、ちょっと珍しい綺麗な青い目をした男の子。</p>
+<p>僕のメンバーカラーがブルーなの、なんか運命的じゃない？</p>
+
+<p>実はシアン、もともと僕と友人が公園で保護して実家で家族みんなで飼っていた猫なんだよね。</p>
+<p>でも、僕が東京で一人暮らしを始めるってなったとき、「シアンと離れるなんて絶対に嫌だ！」ってなっちゃって。</p>
+
+<p>家族からは「慣れ親しんだ実家に置いていく方が猫のためだよ」「一人暮らしで寂しいからって連れて行くのは人間のエゴだよ」って、ものすごく反対されたんだ。</p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p>……でもね、僕にとってはシアンと離れたくないっていう気持ちの方が強かった。</p>
+<p>だって、大好きなものとはずっと一緒にいるべきでしょ？</p>
+
+<p>だから家族の反対を押し切って、半ば強引に連れてきちゃいました（笑）。</p>
+<p>もちろん連れてきたからには、寂しい思いなんて絶対にさせないって決めてたから、お世話はめちゃくちゃ全力でやってるよ！</p>
+
+<p>そんな風に、僕が必死にお世話している様子を動画や写真で毎日家族に送っていたら、</p>
+<p>最初は怒っていた家族も、
+「そこまで大切に、徹底的に管理してお世話してるなら安心だね。
+シアンも幸せそうだし、あなたに任せるよ」</p>
+<p>って、最終的には僕の愛を認めて、許してくれました！本当に良かった。</p>
+
+<p>やっぱり、大好きなものを自分の手元に置いておくためなら、
+それ相応の覚悟と努力が必要だよね。</p>
+<p>僕はシアンのためなら、なんだってできる自信があるよ。</p>
+<p></p><p></p>
+<p>みんなも、僕にとってのシアンみたいな、僕が全力でお世話したくなるような存在になってくれる？</p>
+
+<p>それじゃあまた！</p>
+
+
+                </div>
+
+            </article>
+
+          
+        </main>
+
+        <!-- サイドバー（検索・注意事項 ＋ メンバー一覧） -->
+        <aside class="sidebar">
+
+            <!-- MEMBERの上の枠（検索＆注意事項） -->
+            <div class="sidebar-widget">
+                <h3 class="widget-title">SEARCH & INFO</h3>
+
+                <!-- 記事検索窓 -->
+                <form class="search-form" action="#" method="get" onsubmit="return handleSearch(event)">
+                    <input type="text" id="searchInput" class="search-input" placeholder="キーワードを入力..." required>
+                    <button type="submit" class="search-button">検索</button>
+                </form>
+
+                <!-- 注意事項ボタン -->
+                <button type="button" class="notice-button" onclick="showNotice()">
+                    <span>⚠️</span> ブログ検索の注意事項
+                </button>
+            </div>
+
+            <!-- MEMBERウィジェット -->
+            <div class="sidebar-widget">
+                <h3 class="widget-title">MEMBER</h3>
+                <ul class="member-list">
+                    <li><a href="javascript:void(0);">KOU</a></li>
+                    <li><a href="javascript:void(0);">YUTO</a></li>
+                    <li><a href="javascript:void(0);">REI</a></li>
+                    <li><a href="javascript:void(0);">KAI</a></li>
+                    <li><a herf="javascript:void(0);">SHOTA</a></li>
+                </ul>
+            </div>
+
+        </aside>
+
+    </div>
+
+   <!-- フッターエリア -->
+    <footer>
+        <div class="footer-links">
+            <a href="javascript:void(0);">ファンクラブについて</a>
+            <a href="javascript:void(0);">利用規約</a>
+            <a href="javascript:void(0);">プライバシーポリシー</a>
+            <a href="javascript:void(0);">お問い合わせ</a>
+        </div>
+      <p>このサイトはフィクションです</p>
+        <p class="copyright">&copy; 初心者 / 秘密のファンミーティング</p>
+    
+      <p class="yacho-powered-by" style="margin-top:8px;font-size:11px;opacity:.55;">Powered by <a href="https://sim3.net/yacho/" target="_blank" rel="noopener">YACHO(SIM3)</a></p>
+    </footer>
+
+    <!-- JavaScript（機能処理） -->
+    <script>
+        // 記事検索の動作
+        function handleSearch(event) {
+            event.preventDefault();
+            const query = document.getElementById('searchInput').value;
+            if (query.trim() !== "") {
+                alert(`「${query}」の検索結果を表示します。`);
+            }
+        }
+
+        // 注意事項ボタンの動作
+        function showNotice() {
+            alert(
+                "【ブログ検索に関する注意事項】\n\n" +
+               "会員の皆様への公正を期すため、ご入会いただいた時点以降の記事から閲覧できるよう最新記事のみ表示されています。「過去の記事」の閲覧をご希望の場合は、ブログ上部の検索バーより、ご覧になりたい記事の「タイトル」を入力して検索を行ってください。※検索は「タイトル完全一致」のみ対応しております。※気になる記事や思い出の記事のタイトルを各自で記憶・お控えいただけますようお願い申し上げます。※例「初ブログ」"
+              
+              　
+            );
+        }
+    </script></body>
+</html>
