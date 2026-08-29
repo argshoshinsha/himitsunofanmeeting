@@ -480,6 +480,47 @@
             .blog-title {
                 font-size: 1.4rem;
             }
+        }/* ==========================================
+           フッター
+        ========================================== */
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        /* スマホ対応 */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+            }
+
+            .blog-article {
+                padding: 20px;
+            }
+
+            .blog-title {
+                font-size: 1.4rem;
+            }
         }
     </style>
 <meta name="generator" content="simple-item-master-three">
