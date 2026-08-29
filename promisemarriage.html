@@ -15,8 +15,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+           min-height: 100vh; /* 高さの固定(height)から最小高(min-height)に変更して上の切れを防止 */
             margin: 0;
+            padding: 40px 0; /* 上下に余白を設定 */
+            box-sizing: border-box;
         }
 
         /* 中央のコンテンツを囲む枠 */
@@ -78,6 +80,29 @@
             min-height: 1.5em;
             font-weight: bold;
             text-align: center;
+        }
+		/* フッターエリアのデザイン */
+        footer {
+            text-align: center;
+            padding: 20px 0 10px;
+            color: #888888;
+            font-size: 12px;
+            width: 100%;
+        }
+        footer a {
+            color: #888888;
+            text-decoration: underline;
+        }
+        footer a:hover {
+            color: #1e90ff;
+        }
+        .copyright {
+            margin-bottom: 6px;
+        }
+        .yacho-powered-by {
+            margin-top: 4px;
+            font-size: 11px;
+            opacity: .55;
         }
     </style>
     <!-- ▲▲▲ ここまでデザイン(CSS) ▲▲▲ -->
@@ -151,8 +176,14 @@
         }
     </script>
     <!-- ▲▲▲ ここまで画面移動の動き(JavaScript) ▲▲▲ -->
-
-
-<footer style="text-align:center;padding:12px 0 8px;"><p class="yacho-powered-by" style="margin-top:8px;font-size:11px;opacity:.55;">Powered by <a href="https://sim3.net/yacho/" target="_blank" rel="noopener">YACHO(SIM3)</a></p></footer>
+		
+<!-- ▼▼▼ フッター（最下部） ▼▼▼ -->
+    <footer>
+        <!-- コピーライト（適宜テキストを変更してください） -->
+        <div class="copyright">&copy; 2026 LIGHT PROMOTION. All Rights Reserved.</div>
+        <!-- パワードバイyacho -->
+        <p class="yacho-powered-by">Powered by <a href="https://sim3.net/yacho/" target="_blank" rel="noopener">YACHO(SIM3)</a></p>
+    </footer>
+		
 </body>
 </html>
