@@ -109,6 +109,30 @@
             min-height: 1.5em;
             font-weight: bold;
         }
+			/* フッターエリアのデザイン */
+        footer {
+            text-align: center;
+            padding: 20px 0 10px;
+            color: #888888;
+            font-size: 12px;
+            width: 100%;
+        }
+        footer a {
+            color: #888888;
+            text-decoration: underline;
+        }
+        footer a:hover {
+            color: #1e90ff;
+        }
+        .copyright {
+            margin-bottom: 6px;
+        }
+        .yacho-powered-by {
+            margin-top: 4px;
+            font-size: 11px;
+            opacity: .55;
+        }
+
     </style>
     <!-- ▲▲▲ ここまでデザイン(CSS) ▲▲▲ -->
 
@@ -187,7 +211,14 @@
     </script>
     <!-- ▲▲▲ ここまで正誤判定の動き(JavaScript) ▲▲▲ -->
 
+<!-- ▼▼▼ フッター（最下部） ▼▼▼ -->
+    <footer>
+        <!-- コピーライト（適宜テキストを変更してください） -->
+		<p>このサイトはフィクションです</p>
+        <div class="copyright">&copy;初心者 / 秘密のファンミーティング</div>
+        <!-- パワードバイyacho -->
+        <p class="yacho-powered-by">Powered by <a href="https://sim3.net/yacho/" target="_blank" rel="noopener">YACHO(SIM3)</a></p>
+    </footer>
 
-<footer style="text-align:center;padding:12px 0 8px;"><p class="yacho-powered-by" style="margin-top:8px;font-size:11px;opacity:.55;">Powered by <a href="https://sim3.net/yacho/" target="_blank" rel="noopener">YACHO(SIM3)</a></p></footer>
 </body>
 </html>
