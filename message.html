@@ -7,17 +7,19 @@
     
     <!-- ▼▼▼ ここからデザイン(CSS) ▼▼▼ -->
     <style>
-        /* ページ全体の基本設定（黒背景・青文字・等幅フォント） */
+        /* ページ全体の基本設定（黒背景・赤アクセント・等幅フォント） */
         body {
             background-color: #050505; /* 真っ黒より少しだけ浮かせた黒 */
             color: #ffffff; 
             font-family: 'Courier New', Consolas, monospace; /* プログラムっぽいフォント */
             display: flex;
-            justify-content: center;
-            min-height: 100vh;  /* height を min-height（最小の高さ）に変更 */
-            padding: 40px 0;    /* 上下に余白をつける */
+            flex-direction: column; /* 要素を縦並びにする */
+            justify-content: space-between; /* コンテンツとフッターを上下に離す */
+            align-items: center;
+            min-height: 100vh; /* 最低でも画面の高さを確保 */
             margin: 0;
-            box-sizing: border-box; /* 余白を高さに含める設定 */
+            padding: 40px 0 20px; /* 上下に余白を設定 */
+            box-sizing: border-box;
         }
 
         /* 中央のコンテンツを囲む枠 */
@@ -28,7 +30,7 @@
             border: 1px solid #1e90ff;
             box-shadow: 0 0 15px rgba(30, 144, 255, 0.3); 
             background-color: #000000;
-            margin: auto; 
+            box-sizing: border-box;
         }
 
         /* タイトルのデザイン */
@@ -38,7 +40,7 @@
             border-bottom: 1px dashed #1e90ff;
             padding-bottom: 10px;
             margin-top: 0;
-            text-shadow: 0 0 8px ;
+            text-shadow: 0 0 8px #ff0000;
         }
 
         /* コメント（状況説明）のデザイン */
@@ -60,7 +62,7 @@
         button {
             background-color: #ff0000;
             color: #ffffff;
-            border: 1px solid #f0000;
+            border: 1px solid #ff0000;
             padding: 10px 40px;
             font-family: inherit;
             font-weight: bold;
@@ -81,6 +83,34 @@
             font-weight: bold;
             text-align: center;
         }
+
+        /* フッターエリアのデザイン（枠外の一番下に配置） */
+        footer {
+            text-align: center;
+            padding: 20px 0 10px;
+            color: #888888;
+            font-size: 12px;
+            width: 100%;
+            margin-top: 30px; /* 枠との間の余白 */
+        }
+        footer p {
+            margin: 4px 0;
+        }
+        footer a {
+            color: #888888;
+            text-decoration: underline;
+        }
+        footer a:hover {
+            color: #1e90ff;
+        }
+        .copyright {
+            margin-bottom: 6px;
+        }
+        .yacho-powered-by {
+            margin-top: 4px;
+            font-size: 11px;
+            opacity: .55;
+        }
     </style>
     <!-- ▲▲▲ ここまでデザイン(CSS) ▲▲▲ -->
 
@@ -96,35 +126,34 @@
 
         <!-- ▼ コメント（状況説明やフレーバーテキスト） ▼ -->
         <div class="comment">
-<p>	えっと・・・秘密のファンミーティングへようこそ。	
-<br>	最後までクイズに答えてくれて、本当にありがとう。	</p>
-		
-<p>	だけど……おかしいな。	
-<br>	この秘密の場所のこと、君は一体誰から聞いたの？	</p>
-		
-<p>	僕が作ったシステムが急に作動したから、本当にびっくりしたよ。	
-<br>	彼女をここに迎えた時点で、誰一人入れないように完全に閉鎖しておくべきだった。油断しちゃったな。	</p>
-		
-<p>	彼女と僕だけの特別な思い出を知ってる人は他にいないはずだし…どんな手を使ったか分からないけど。	
-<br>	誰にも言わずに最後までクイズを解いてくれたってことは、君はただの好奇心で秘密を覗きたかっただけだよね？	</p>
-		
-<p>	なら安心して。彼女のことは心配いらないよ。	
-<br>	他の誰にも邪魔されない安全な場所で、僕が完璧に守っていくから。	</p>
-		
-<p>	彼女の事をずっと、ずっと、ずっと探してたんだ。	
-<br>	あの時はなぜか離ればなれになっちゃったけど……もう絶対に離さない。これからはずっと一緒なんだ。僕のそばで、ずっと。	</p>
-		
-<p>	さぁ、彼女を誰よりも幸せにするために、僕もアイドルのお仕事を頑張らなくちゃ。	
-<br>	勝手にお休みしてたのマネージャー怒ってないといいな。	</p>
-		
-<p>	そうだ！	
-<br>	このことはもちろん、絶対に誰にも言わないよね？	
-<br>	これは僕と君だけの、大切な約束だからね。	</p>
-		
-<p>	……約束、守ってね。	
-<br>	それじゃあね。	</p>
-
-
+            <p>えっと・・・秘密のファンミーティングへようこそ。<br>
+            最後までクイズに答えてくれて、本当にありがとう。</p>
+            
+            <p>だけど……おかしいな。<br>
+            この秘密の場所のこと、君は一体誰から聞いたの？</p>
+            
+            <p>僕が作ったシステムが急に作動したから、本当にびっくりしたよ。<br>
+            彼女をここに迎えた時点で、誰一人入れないように完全に閉鎖しておくべきだった。油断しちゃったな。</p>
+            
+            <p>彼女と僕だけの特別な思い出を知ってる人は他にいないはずだし…どんな手を使ったか分からないけど。<br>
+            誰にも言わずに最後までクイズを解いてくれたってことは、君はただの好奇心で秘密を覗きたかっただけだよね？</p>
+            
+            <p>なら安心して。彼女のことは心配いらないよ。<br>
+            他の誰にも邪魔されない安全な場所で、僕が完璧に守っていくから。</p>
+            
+            <p>彼女の事をずっと、ずっと、ずっと探してたんだ。<br>
+            あの時はなぜか離ればなれになっちゃったけど……もう絶対に離さない。これからはずっと一緒なんだ。僕のそばで、ずっと。</p>
+            
+            <p>さぁ、彼女を誰よりも幸せにするために、僕もアイドルのお仕事を頑張らなくちゃ。<br>
+            勝手にお休みしてたのマネージャー怒ってないといいな。</p>
+            
+            <p>そうだ！<br>
+            このことはもちろん、絶対に誰にも言わないよね？<br>
+            これは僕と君だけの、大切な約束だからね。</p>
+            
+            <p>……約束、守ってね。<br>
+            それじゃあね。</p>
+        </div>
 
         <!-- ▼ ボタンエリア ▼ -->
         <div class="answer-area">
@@ -156,7 +185,13 @@
     </script>
     <!-- ▲▲▲ ここまで画面移動の動き(JavaScript) ▲▲▲ -->
 
+    <!-- ▼▼▼ フッター（枠外・一番下に配置） ▼▼▼ -->
+    <footer>
+        <p>このサイトはフィクションです</p>
+        <div class="copyright">&copy;初心者 / 秘密のファンミーティング</div>
+        <!-- パワードバイyacho -->
+        <p class="yacho-powered-by">Powered by <a href="https://sim3.net/yacho/" target="_blank" rel="noopener">YACHO(SIM3)</a></p>
+    </footer>
 
-<footer style="text-align:center;padding:12px 0 8px;"><p class="yacho-powered-by" style="margin-top:8px;font-size:11px;opacity:.55;">Powered by <a href="https://sim3.net/yacho/" target="_blank" rel="noopener">YACHO(SIM3)</a></p></footer>
 </body>
 </html>
